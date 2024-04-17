@@ -61,7 +61,7 @@ namespace biblaoteka.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to Azat 5f4dcc3b5aa765d61d8327deb882cf99.
         /// </summary>
         internal static string UserNamesXPasswords {
             get {
