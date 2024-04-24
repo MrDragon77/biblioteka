@@ -105,5 +105,16 @@ namespace biblaoteka
         {
             Debug.WriteLine(FixIndexesDB());
         }
+
+        private void ReadersTableDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int rowIndex = ReadersTableDataGridView.SelectedCells[0].RowIndex;
+            //string index = ReadersTableDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            int index = Int32.Parse(ReadersTableDataGridView[0, rowIndex].Value.ToString());
+            Debug.WriteLine(rowIndex);
+            Debug.WriteLine(index);
+            ReaderForm readerForm = new ReaderForm(index);
+            readerForm.ShowDialog();
+        }
     }
 }

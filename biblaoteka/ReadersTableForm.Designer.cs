@@ -49,6 +49,7 @@
             ReadersTableDataGridView.RowTemplate.Height = 25;
             ReadersTableDataGridView.Size = new Size(776, 250);
             ReadersTableDataGridView.TabIndex = 0;
+            ReadersTableDataGridView.CellDoubleClick += ReadersTableDataGridView_CellDoubleClick;
             // 
             // Index
             // 
@@ -77,11 +78,11 @@
             // 
             // fixbutton
             // 
-            fixbutton.Location = new Point(107, 312);
+            fixbutton.Location = new Point(12, 384);
             fixbutton.Name = "fixbutton";
             fixbutton.Size = new Size(82, 54);
             fixbutton.TabIndex = 1;
-            fixbutton.Text = "button1";
+            fixbutton.Text = "fix indexes";
             fixbutton.UseVisualStyleBackColor = true;
             fixbutton.Click += fixbutton_Click;
             // 
