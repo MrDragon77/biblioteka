@@ -1,7 +1,7 @@
 using biblaoteka.Properties;
 using System.Text;
 using System.Reflection;
-
+using System.Diagnostics;
 
 namespace biblaoteka
 {
@@ -36,32 +36,27 @@ namespace biblaoteka
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            String line;
             String[] perms;
-            var assembly = Assembly.GetExecutingAssembly();
-            var resourceName = "MyCompany.MyProduct.MyFile.txt";
-            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
-                try
+            try
             {
-                StreamReader sr = new StreamReader(Resources.UserNamesXPasswords);
-                Console.WriteLine("here");
-                line = sr.ReadLine();
-                Console.WriteLine("or here");
-                perms = line.Split(' ');
-                Console.WriteLine("or or here");
-                if (UserNameTextBox.Text == perms[0] && PasswordTextBox.Text == perms[1])
+                StreamReader sr = new StreamReader("UserNamesXPasswords.txt");
+                while(!sr.EndOfStream)
                 {
-                    throw new Exception("success");
+                    perms = sr.ReadLine().Split(' ');
+                    Debug.WriteLine(CreateMD5(PasswordTextBox.Text));
+                    if (UserNameTextBox.Text == perms[0] && CreateMD5(PasswordTextBox.Text) == perms[1])
+                    {
+                        Debug.WriteLine("success, loading main form");
+                        sr.Close();
+                        return;
+                    }
                 }
-
+                sr.Close();
+                Debug.WriteLine("wrong, still that form");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Exception: " + ex.Message);
-            }
-            finally
-            {
-                Console.WriteLine("Authorization successful");
+                Debug.WriteLine("Exception: " + ex.Message);
             }
         }
     }
