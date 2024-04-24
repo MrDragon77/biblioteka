@@ -38,7 +38,7 @@ namespace biblaoteka
         {
             Debug.WriteLine("going to ReadersForm");
             this.Close();
-            ReadersForm readersForm = new ReadersForm();
+            ReadersTableForm readersForm = new ReadersTableForm();
             readersForm.Show();
         }
     }

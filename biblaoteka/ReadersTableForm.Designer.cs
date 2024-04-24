@@ -1,6 +1,6 @@
 ﻿namespace biblaoteka
 {
-    partial class ReadersForm
+    partial class ReadersTableForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             ReadersTableDataGridView = new DataGridView();
+            Index = new DataGridViewTextBoxColumn();
             FullName = new DataGridViewTextBoxColumn();
             BirthDate = new DataGridViewTextBoxColumn();
             AmountTakenBooks = new DataGridViewTextBoxColumn();
@@ -37,36 +38,49 @@
             // 
             // ReadersTableDataGridView
             // 
+            ReadersTableDataGridView.AllowUserToAddRows = false;
+            ReadersTableDataGridView.AllowUserToDeleteRows = false;
             ReadersTableDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            ReadersTableDataGridView.Columns.AddRange(new DataGridViewColumn[] { FullName, BirthDate, AmountTakenBooks });
+            ReadersTableDataGridView.Columns.AddRange(new DataGridViewColumn[] { Index, FullName, BirthDate, AmountTakenBooks });
             ReadersTableDataGridView.Location = new Point(12, 12);
             ReadersTableDataGridView.Name = "ReadersTableDataGridView";
+            ReadersTableDataGridView.ReadOnly = true;
             ReadersTableDataGridView.RowTemplate.Height = 25;
-            ReadersTableDataGridView.Size = new Size(407, 250);
+            ReadersTableDataGridView.Size = new Size(776, 250);
             ReadersTableDataGridView.TabIndex = 0;
+            // 
+            // Index
+            // 
+            Index.HeaderText = "Index";
+            Index.Name = "Index";
+            Index.ReadOnly = true;
             // 
             // FullName
             // 
             FullName.HeaderText = "Full Name";
             FullName.Name = "FullName";
+            FullName.ReadOnly = true;
+            FullName.Width = 200;
             // 
             // BirthDate
             // 
             BirthDate.HeaderText = "Birth Date";
             BirthDate.Name = "BirthDate";
+            BirthDate.ReadOnly = true;
             // 
             // AmountTakenBooks
             // 
             AmountTakenBooks.HeaderText = "Amount of Taken Books";
             AmountTakenBooks.Name = "AmountTakenBooks";
+            AmountTakenBooks.ReadOnly = true;
             // 
-            // ReadersForm
+            // ReadersTableForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(ReadersTableDataGridView);
-            Name = "ReadersForm";
+            Name = "ReadersTableForm";
             Text = "ReadersForm";
             ((System.ComponentModel.ISupportInitialize)ReadersTableDataGridView).EndInit();
             ResumeLayout(false);
@@ -75,6 +89,7 @@
         #endregion
 
         private DataGridView ReadersTableDataGridView;
+        private DataGridViewTextBoxColumn Index;
         private DataGridViewTextBoxColumn FullName;
         private DataGridViewTextBoxColumn BirthDate;
         private DataGridViewTextBoxColumn AmountTakenBooks;

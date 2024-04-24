@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace biblaoteka
 {
-    public partial class ReadersForm : Form
+    public partial class ReadersTableForm : Form
     {
         string pathToDB = "Readers.txt";
         List<Reader> readers;
         FileStream fs;
-        public ReadersForm()
+        public ReadersTableForm()
         {
             InitializeComponent();
             fs = new FileStream(pathToDB, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
@@ -28,13 +28,13 @@ namespace biblaoteka
         bool ReadReadersFromDB()
         {
             StreamReader sr = new StreamReader(fs);
-            
-            while(!sr.EndOfStream)
+
+            while (!sr.EndOfStream)
             {
                 string[] line = sr.ReadLine().Split(' ');
                 try
                 {
-                    readers.Add(new Reader(line[0], line[1], line[2], DateTime.Parse(line[3]), Int32.Parse(line[4])));
+                    readers.Add(new Reader(Int32.Parse(line[0]), line[1], line[2], line[3], DateTime.Parse(line[4]), Int32.Parse(line[5])));
                 }
                 catch (Exception ex)
                 {
@@ -48,6 +48,8 @@ namespace biblaoteka
         {
             for (int i = 0; i < readers.Count(); i++)
             {
+                DataGridViewCell tb_index = new DataGridViewTextBoxCell();
+                tb_index.Value = readers[i].index.ToString();
                 DataGridViewCell tb_fullName = new DataGridViewTextBoxCell();
                 tb_fullName.Value = readers[i].fam + ' ' + readers[i].name + ' ' + readers[i].ot;
                 DataGridViewCell tb_birthDate = new DataGridViewTextBoxCell();
@@ -56,11 +58,10 @@ namespace biblaoteka
                 tb_amountTakenBooks.Value = readers[i].amountTakenBooks.ToString();
 
                 DataGridViewRow row = new DataGridViewRow();
-                row.Cells.AddRange(tb_fullName, tb_birthDate, tb_amountTakenBooks);
+                row.Cells.AddRange(tb_index, tb_fullName, tb_birthDate, tb_amountTakenBooks);
                 ReadersTableDataGridView.Rows.Add(row);
             }
         }
-
 
     }
 }

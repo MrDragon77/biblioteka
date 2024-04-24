@@ -12,7 +12,7 @@ namespace biblaoteka
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             //Application.Run(new AuthorizationForm());
-            Application.Run(new ReadersForm());
+            Application.Run(new ReadersTableForm());
         }
     }
 }
