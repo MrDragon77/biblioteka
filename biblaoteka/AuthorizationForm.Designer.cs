@@ -53,7 +53,7 @@
             LoginButton.Name = "LoginButton";
             LoginButton.Size = new Size(75, 23);
             LoginButton.TabIndex = 2;
-            LoginButton.Text = "button1";
+            LoginButton.Text = "Log in";
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += LoginButton_Click;
             // 
@@ -66,7 +66,7 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(UserNameTextBox);
             Name = "AuthorizationForm";
-            Text = "Form1";
+            Text = "Authorization";
             ResumeLayout(false);
             PerformLayout();
         }

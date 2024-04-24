@@ -40,13 +40,16 @@ namespace biblaoteka
             try
             {
                 StreamReader sr = new StreamReader("UserNamesXPasswords.txt");
-                while(!sr.EndOfStream)
+                while (!sr.EndOfStream)
                 {
                     perms = sr.ReadLine().Split(' ');
                     Debug.WriteLine(CreateMD5(PasswordTextBox.Text));
                     if (UserNameTextBox.Text == perms[0] && CreateMD5(PasswordTextBox.Text) == perms[1])
                     {
                         Debug.WriteLine("success, loading main form");
+                        this.Hide();
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
                         sr.Close();
                         return;
                     }
