@@ -41,6 +41,7 @@
             BooksButton.TabIndex = 0;
             BooksButton.Text = "Books";
             BooksButton.UseVisualStyleBackColor = true;
+            BooksButton.Click += BooksButton_Click;
             // 
             // AddBookButton
             // 
@@ -50,6 +51,7 @@
             AddBookButton.TabIndex = 1;
             AddBookButton.Text = "Add book";
             AddBookButton.UseVisualStyleBackColor = true;
+            AddBookButton.Click += AddBookButton_Click;
             // 
             // ReadersButton
             // 
@@ -59,6 +61,7 @@
             ReadersButton.TabIndex = 2;
             ReadersButton.Text = "Readers";
             ReadersButton.UseVisualStyleBackColor = true;
+            ReadersButton.Click += ReadersButton_Click;
             // 
             // MainForm
             // 

@@ -19,11 +19,11 @@ namespace biblaoteka
         FileStream fs;
         public ReadersForm()
         {
+            InitializeComponent();
             fs = new FileStream(pathToDB, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
             readers = new List<Reader>();
             ReadReadersFromDB();
             FillTable();
-            InitializeComponent();
         }
         bool ReadReadersFromDB()
         {
@@ -34,7 +34,7 @@ namespace biblaoteka
                 string[] line = sr.ReadLine().Split(' ');
                 try
                 {
-                    readers.Add(new Reader(line[0], line[0], line[0], DateTime.Parse(line[0]), Int32.Parse(line[0])));
+                    readers.Add(new Reader(line[0], line[1], line[2], DateTime.Parse(line[3]), Int32.Parse(line[4])));
                 }
                 catch (Exception ex)
                 {
@@ -51,7 +51,7 @@ namespace biblaoteka
                 DataGridViewCell tb_fullName = new DataGridViewTextBoxCell();
                 tb_fullName.Value = readers[i].fam + ' ' + readers[i].name + ' ' + readers[i].ot;
                 DataGridViewCell tb_birthDate = new DataGridViewTextBoxCell();
-                tb_birthDate.Value = readers[i].birthDate.ToString();
+                tb_birthDate.Value = readers[i].birthDate.Date.ToString().Substring(0, 10);
                 DataGridViewCell tb_amountTakenBooks = new DataGridViewTextBoxCell();
                 tb_amountTakenBooks.Value = readers[i].amountTakenBooks.ToString();
 
