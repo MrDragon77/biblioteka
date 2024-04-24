@@ -16,5 +16,9 @@ namespace biblaoteka
         {
             InitializeComponent();
         }
+        //public ReaderForm()
+        //{
+        //    InitializeComponent();
+        //}
     }
 }

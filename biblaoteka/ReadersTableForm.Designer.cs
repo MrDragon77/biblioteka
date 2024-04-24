@@ -33,6 +33,7 @@
             FullName = new DataGridViewTextBoxColumn();
             BirthDate = new DataGridViewTextBoxColumn();
             AmountTakenBooks = new DataGridViewTextBoxColumn();
+            fixbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)ReadersTableDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -74,11 +75,22 @@
             AmountTakenBooks.Name = "AmountTakenBooks";
             AmountTakenBooks.ReadOnly = true;
             // 
+            // fixbutton
+            // 
+            fixbutton.Location = new Point(107, 312);
+            fixbutton.Name = "fixbutton";
+            fixbutton.Size = new Size(82, 54);
+            fixbutton.TabIndex = 1;
+            fixbutton.Text = "button1";
+            fixbutton.UseVisualStyleBackColor = true;
+            fixbutton.Click += fixbutton_Click;
+            // 
             // ReadersTableForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(fixbutton);
             Controls.Add(ReadersTableDataGridView);
             Name = "ReadersTableForm";
             Text = "ReadersForm";
@@ -93,5 +105,6 @@
         private DataGridViewTextBoxColumn FullName;
         private DataGridViewTextBoxColumn BirthDate;
         private DataGridViewTextBoxColumn AmountTakenBooks;
+        private Button fixbutton;
     }
 }

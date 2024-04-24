@@ -16,17 +16,20 @@ namespace biblaoteka
     {
         string pathToDB = "Readers.txt";
         List<Reader> readers;
-        FileStream fs;
         public ReadersTableForm()
         {
             InitializeComponent();
-            fs = new FileStream(pathToDB, FileMode.Open, FileAccess.ReadWrite, FileShare.None);
             readers = new List<Reader>();
             ReadReadersFromDB();
             FillTable();
         }
+        //void CreateFileStream()
+        //{
+        //    fs = new FileStream(pathToDB, FileMode.Open, FileAccess.ReadWrite);
+        //}
         bool ReadReadersFromDB()
         {
+            FileStream fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
             while (!sr.EndOfStream)
@@ -39,9 +42,44 @@ namespace biblaoteka
                 catch (Exception ex)
                 {
                     Debug.WriteLine("Exception: " + ex.Message);
+                    fs.Close();
                     return false;
                 }
             }
+            fs.Close();
+            return true;
+        }
+        bool FixIndexesDB()
+        {
+            File.Copy(pathToDB, "tmp.txt");
+            FileStream fs2 = new FileStream("tmp.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs2);
+            FileStream fs = new FileStream(pathToDB, FileMode.Truncate, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
+
+
+            int index = 1;
+            int indexLen = 6;
+            while (!sr.EndOfStream)
+            {
+                try
+                {
+                    string[] line = sr.ReadLine().Split(' ');
+                    sw.WriteLine(index.ToString("D" + indexLen) + ' ' + line[1] + ' ' + line[2] + ' ' + line[3] + ' ' + line[4] + ' ' + line[5]);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Exception: " + ex.Message);
+                    fs.Close();
+                    fs2.Close();
+                    return false;
+                }
+                index++;
+            }
+            sw.Flush();
+            fs.Close();
+            fs2.Close();
+            File.Delete("tmp.txt");
             return true;
         }
         void FillTable()
@@ -63,5 +101,9 @@ namespace biblaoteka
             }
         }
 
+        private void fixbutton_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine(FixIndexesDB());
+        }
     }
 }
