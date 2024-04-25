@@ -34,6 +34,8 @@
             BirthDate = new DataGridViewTextBoxColumn();
             AmountTakenBooks = new DataGridViewTextBoxColumn();
             fixbutton = new Button();
+            BackButton = new Button();
+            NewReaderButton = new Button();
             ((System.ComponentModel.ISupportInitialize)ReadersTableDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // 
             // fixbutton
             // 
-            fixbutton.Location = new Point(12, 384);
+            fixbutton.Location = new Point(169, 384);
             fixbutton.Name = "fixbutton";
             fixbutton.Size = new Size(82, 54);
             fixbutton.TabIndex = 1;
@@ -86,11 +88,33 @@
             fixbutton.UseVisualStyleBackColor = true;
             fixbutton.Click += fixbutton_Click;
             // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(12, 384);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(105, 54);
+            BackButton.TabIndex = 2;
+            BackButton.Text = "<- Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
+            // NewReaderButton
+            // 
+            NewReaderButton.Location = new Point(675, 382);
+            NewReaderButton.Name = "NewReaderButton";
+            NewReaderButton.Size = new Size(102, 50);
+            NewReaderButton.TabIndex = 3;
+            NewReaderButton.Text = "New Reader";
+            NewReaderButton.UseVisualStyleBackColor = true;
+            NewReaderButton.Click += NewReaderButton_Click;
+            // 
             // ReadersTableForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(NewReaderButton);
+            Controls.Add(BackButton);
             Controls.Add(fixbutton);
             Controls.Add(ReadersTableDataGridView);
             Name = "ReadersTableForm";
@@ -107,5 +131,7 @@
         private DataGridViewTextBoxColumn BirthDate;
         private DataGridViewTextBoxColumn AmountTakenBooks;
         private Button fixbutton;
+        private Button BackButton;
+        private Button NewReaderButton;
     }
 }

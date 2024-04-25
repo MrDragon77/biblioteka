@@ -31,6 +31,7 @@
             BooksButton = new Button();
             AddBookButton = new Button();
             ReadersButton = new Button();
+            LogOutButton = new Button();
             SuspendLayout();
             // 
             // BooksButton
@@ -63,11 +64,22 @@
             ReadersButton.UseVisualStyleBackColor = true;
             ReadersButton.Click += ReadersButton_Click;
             // 
+            // LogOutButton
+            // 
+            LogOutButton.Location = new Point(21, 16);
+            LogOutButton.Name = "LogOutButton";
+            LogOutButton.Size = new Size(68, 27);
+            LogOutButton.TabIndex = 3;
+            LogOutButton.Text = "Log out";
+            LogOutButton.UseVisualStyleBackColor = true;
+            LogOutButton.Click += LogOutButton_Click;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(LogOutButton);
             Controls.Add(ReadersButton);
             Controls.Add(AddBookButton);
             Controls.Add(BooksButton);
@@ -81,5 +93,6 @@
         private Button BooksButton;
         private Button AddBookButton;
         private Button ReadersButton;
+        private Button LogOutButton;
     }
 }

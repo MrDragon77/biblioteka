@@ -39,6 +39,7 @@
             label6 = new Label();
             SaveChangesButton = new Button();
             DiscardChangesButton = new Button();
+            BackButton = new Button();
             SuspendLayout();
             // 
             // ReaderFullNameLabel
@@ -140,11 +141,22 @@
             DiscardChangesButton.Visible = false;
             DiscardChangesButton.Click += DiscardChangesButton_Click;
             // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(21, 362);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(101, 52);
+            BackButton.TabIndex = 13;
+            BackButton.Text = "<- Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
             // ReaderForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(BackButton);
             Controls.Add(DiscardChangesButton);
             Controls.Add(SaveChangesButton);
             Controls.Add(label6);
@@ -175,5 +187,6 @@
         private Label label6;
         private Button SaveChangesButton;
         private Button DiscardChangesButton;
+        private Button BackButton;
     }
 }

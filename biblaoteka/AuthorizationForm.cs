@@ -55,11 +55,20 @@ namespace biblaoteka
                     }
                 }
                 sr.Close();
+                MessageBox.Show("Wrong username or password\nPlease try again.", "Incorrect password");
                 Debug.WriteLine("wrong, still that form");
             }
             catch (Exception ex)
             {
                 Debug.WriteLine("Exception: " + ex.Message);
+            }
+        }
+
+        private void PasswordTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                LoginButton_Click(sender, e);
             }
         }
     }

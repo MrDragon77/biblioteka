@@ -16,10 +16,24 @@ namespace biblaoteka
     public partial class ReaderForm : Form
     {
         string pathToDB = "Readers.txt";
-        string[] savedReader;
+        string[] savedReader = new string[4];
         public ReaderForm()
         {
             InitializeComponent();
+            FileStream fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+            string line = "000000";
+            while(!sr.EndOfStream)
+            {
+                line = sr.ReadLine();
+            }
+            string[] dividedLine = line.Split(' ');
+            int newIndex = int.Parse(dividedLine[0]) + 1;
+            int indexLen = 6;
+            ReaderIndexTextBox.Text = newIndex.ToString("D" + indexLen);
+            ReaderAmountTakenBooksTextBox.Text = "0";
+            SaveReader();
+            fs.Close();
         }
         public ReaderForm(int index)
         {
@@ -87,7 +101,7 @@ namespace biblaoteka
                 MessageBox.Show("It must contain birth date in dd.mm.yyyy format.", "Wrong Birth Date");
                 return;
             }
-            
+
             //data good, can write to DB
 
             string[] readerstxt = File.ReadAllLines(pathToDB);
@@ -97,9 +111,10 @@ namespace biblaoteka
             //}
             int searchIndex = 0;
             bool founded = false;
-            for(int i = 0;  i < readerstxt.Length; i++)
+            string[] line = {"0"};
+            for (int i = 0; i < readerstxt.Length; i++)
             {
-                string[] line = readerstxt[i].Split(' ');
+                line = readerstxt[i].Split(' ');
                 if (Int32.Parse(line[0]) == Int32.Parse(ReaderIndexTextBox.Text))
                 {
                     searchIndex = i;
@@ -107,19 +122,19 @@ namespace biblaoteka
                     break;
                 }
             }
-            if(!founded)
+            if (!founded)
             {
-                Debug.WriteLine("index not found");
-                return;
+                searchIndex = readerstxt.Length;
+                Debug.WriteLine("index not found, creating new one");
             }
             FileStream fs = new FileStream(pathToDB, FileMode.Truncate, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
-            for(int i = 0; i < searchIndex; i++)
+            for (int i = 0; i < searchIndex; i++)
             {
                 sw.WriteLine(readerstxt[i]);
             }
             sw.WriteLine(ReaderIndexTextBox.Text + ' ' + ReaderFullNameTextBox.Text + ' ' + ReaderBirthDateTextBox.Text + ' ' + ReaderAmountTakenBooksTextBox.Text);
-            for (int i = searchIndex+1; i < readerstxt.Length; i++)
+            for (int i = searchIndex + 1; i < readerstxt.Length; i++)
             {
                 sw.WriteLine(readerstxt[i]);
             }
@@ -136,6 +151,11 @@ namespace biblaoteka
             LoadSavedReader();
             SaveChangesButton.Visible = false;
             DiscardChangesButton.Visible = false;
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

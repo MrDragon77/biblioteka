@@ -41,5 +41,12 @@ namespace biblaoteka
             ReadersTableForm readersForm = new ReadersTableForm();
             readersForm.Show();
         }
+
+        private void LogOutButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AuthorizationForm authForm = new AuthorizationForm();
+            authForm.Show();
+        }
     }
 }

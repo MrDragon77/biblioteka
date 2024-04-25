@@ -46,6 +46,7 @@
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(100, 23);
             PasswordTextBox.TabIndex = 1;
+            PasswordTextBox.KeyDown += PasswordTextBox_KeyDown;
             // 
             // LoginButton
             // 

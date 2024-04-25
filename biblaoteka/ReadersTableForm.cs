@@ -29,6 +29,7 @@ namespace biblaoteka
         //}
         bool ReadReadersFromDB()
         {
+            readers.Clear();
             FileStream fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
@@ -85,6 +86,7 @@ namespace biblaoteka
         }
         void FillTable()
         {
+            ReadersTableDataGridView.Rows.Clear();
             for (int i = 0; i < readers.Count(); i++)
             {
                 DataGridViewCell tb_index = new DataGridViewTextBoxCell();
@@ -116,6 +118,21 @@ namespace biblaoteka
             Debug.WriteLine(index);
             ReaderForm readerForm = new ReaderForm(index);
             readerForm.ShowDialog();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
+
+        private void NewReaderButton_Click(object sender, EventArgs e)
+        {
+            ReaderForm readerForm = new ReaderForm();
+            readerForm.ShowDialog();
+            ReadReadersFromDB();
+            FillTable();
         }
     }
 }
