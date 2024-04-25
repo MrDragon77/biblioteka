@@ -80,9 +80,14 @@ namespace biblaoteka
                 MessageBox.Show("It must contain birth date in dd.mm.yyyy format.", "Wrong Birth Date");
                 return;
             }
+            
             //data good, can write to DB
 
             string[] readerstxt = File.ReadAllLines(pathToDB);
+            //for (int i = 0; i < readerstxt.Length; i++)
+            //{
+            //    Debug.WriteLine(readerstxt[i]);
+            //}
             int searchIndex = 0;
             bool founded = false;
             for(int i = 0;  i < readerstxt.Length; i++)
@@ -101,8 +106,6 @@ namespace biblaoteka
                 return;
             }
             FileStream fs = new FileStream(pathToDB, FileMode.Truncate, FileAccess.Write);
-            fs.Close();
-            fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
             for(int i = 0; i < searchIndex; i++)
             {
@@ -113,6 +116,7 @@ namespace biblaoteka
             {
                 sw.WriteLine(readerstxt[i]);
             }
+            sw.Flush();
             fs.Close();
         }
 
