@@ -80,6 +80,7 @@ namespace biblaoteka
             fs.Close();
             fs2.Close();
             File.Delete("tmp.txt");
+            MessageBox.Show("fixed indexes");
             return true;
         }
         void FillTable()

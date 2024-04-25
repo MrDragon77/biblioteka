@@ -51,6 +51,13 @@ namespace biblaoteka
             ReaderBirthDateTextBox.Text = savedReader[2];
             ReaderAmountTakenBooksTextBox.Text = savedReader[3];
         }
+        private void SaveReader()
+        {
+            savedReader[0] = ReaderIndexTextBox.Text;
+            savedReader[1] = ReaderFullNameTextBox.Text;
+            savedReader[2] = ReaderBirthDateTextBox.Text;
+            savedReader[3] = ReaderAmountTakenBooksTextBox.Text;
+        }
 
         private void ReaderFullNameTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -118,11 +125,17 @@ namespace biblaoteka
             }
             sw.Flush();
             fs.Close();
+
+            SaveReader();
+            SaveChangesButton.Visible = false;
+            DiscardChangesButton.Visible = false;
         }
 
         private void DiscardChangesButton_Click(object sender, EventArgs e)
         {
             LoadSavedReader();
+            SaveChangesButton.Visible = false;
+            DiscardChangesButton.Visible = false;
         }
     }
 }
