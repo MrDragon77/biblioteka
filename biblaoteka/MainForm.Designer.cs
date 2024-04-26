@@ -69,7 +69,7 @@
             // 
             // LogOutButton
             // 
-            LogOutButton.Location = new Point(325, 198);
+            LogOutButton.Location = new Point(12, 13);
             LogOutButton.Margin = new Padding(3, 4, 3, 4);
             LogOutButton.Name = "LogOutButton";
             LogOutButton.Size = new Size(78, 36);
