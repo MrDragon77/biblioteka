@@ -2,7 +2,7 @@ using Books;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace Lab_PCHMI
+namespace biblaoteka
 {
     public partial class BookTableForm : Form
     {

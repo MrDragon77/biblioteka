@@ -20,18 +20,18 @@ namespace biblaoteka
 
         private void BooksButton_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("going to BooksForm");
+            Debug.WriteLine("going to BookTableForm");
             this.Close();
-            //BooksForm booksForm = new BooksForm();
-            //booksForm.Show();
+            BookTableForm bookTableForm = new BookTableForm();
+            bookTableForm.Show();
         }
 
         private void AddBookButton_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("going to AddBookForm");
             this.Close();
-            //AddBookForm addBookForm = new AddBookForm();
-            //addBookForm.Show();
+            AddBookForm addBookForm = new AddBookForm();
+            addBookForm.Show();
         }
 
         private void ReadersButton_Click(object sender, EventArgs e)

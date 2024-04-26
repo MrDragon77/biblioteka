@@ -1,4 +1,4 @@
-﻿namespace Lab_PCHMI
+﻿namespace biblaoteka
 {
     partial class AddBookForm
     {

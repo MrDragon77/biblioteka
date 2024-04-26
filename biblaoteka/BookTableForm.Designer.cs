@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.Eventing.Reader;
 using System.Windows.Forms;
 
-namespace Lab_PCHMI
+namespace biblaoteka
 {
     partial class BookTableForm : Form
     {

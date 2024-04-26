@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Lab_PCHMI
+namespace biblaoteka
 {
     public partial class AddBookForm : Form
     {
