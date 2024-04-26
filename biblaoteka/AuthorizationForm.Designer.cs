@@ -31,18 +31,20 @@
             UserNameTextBox = new TextBox();
             PasswordTextBox = new TextBox();
             LoginButton = new Button();
+            UserNameLabel = new Label();
+            PasswordLabel = new Label();
             SuspendLayout();
             // 
             // UserNameTextBox
             // 
-            UserNameTextBox.Location = new Point(128, 73);
+            UserNameTextBox.Location = new Point(92, 30);
             UserNameTextBox.Name = "UserNameTextBox";
             UserNameTextBox.Size = new Size(100, 23);
             UserNameTextBox.TabIndex = 0;
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(128, 140);
+            PasswordTextBox.Location = new Point(92, 71);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(100, 23);
             PasswordTextBox.TabIndex = 1;
@@ -50,19 +52,39 @@
             // 
             // LoginButton
             // 
-            LoginButton.Location = new Point(136, 201);
+            LoginButton.Location = new Point(69, 138);
             LoginButton.Name = "LoginButton";
-            LoginButton.Size = new Size(75, 23);
+            LoginButton.Size = new Size(134, 63);
             LoginButton.TabIndex = 2;
             LoginButton.Text = "Log in";
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += LoginButton_Click;
+            // 
+            // UserNameLabel
+            // 
+            UserNameLabel.AutoSize = true;
+            UserNameLabel.Location = new Point(12, 33);
+            UserNameLabel.Name = "UserNameLabel";
+            UserNameLabel.Size = new Size(68, 15);
+            UserNameLabel.TabIndex = 3;
+            UserNameLabel.Text = "User Name:";
+            // 
+            // PasswordLabel
+            // 
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Location = new Point(12, 74);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(60, 15);
+            PasswordLabel.TabIndex = 4;
+            PasswordLabel.Text = "Password:";
             // 
             // AuthorizationForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(PasswordLabel);
+            Controls.Add(UserNameLabel);
             Controls.Add(LoginButton);
             Controls.Add(PasswordTextBox);
             Controls.Add(UserNameTextBox);
@@ -77,5 +99,7 @@
         private TextBox UserNameTextBox;
         private TextBox PasswordTextBox;
         private Button LoginButton;
+        private Label UserNameLabel;
+        private Label PasswordLabel;
     }
 }
