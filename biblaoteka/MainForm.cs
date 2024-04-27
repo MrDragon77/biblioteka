@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
+using System.Drawing.Printing;
 
 namespace biblaoteka
 {
@@ -52,18 +53,35 @@ namespace biblaoteka
 
         private void MainForm_Paint(object sender, PaintEventArgs e)
         {
-            int xA = Width / 3, xB = Width / 3 * 2, xC = Width, y = Height;
-            Rectangle recA = new Rectangle(0, 0, xA, y);
-            Rectangle recB = new Rectangle(xA, 0, xB, y);
-            Rectangle recC = new Rectangle(xB, 0, xC, y);
-
-            Brush brushA = new SolidBrush(Color.LightBlue);
-            Brush brushB = new SolidBrush(Color.LawnGreen);
-            Brush brushC = new SolidBrush(ColorTranslator.FromHtml("#D95143"));
+            int xA = Width / 3, xB = Width * 2 / 3, xC = Width, y = Height;
+            int recWidth = Width / 3, recHeight = Height;
+            Rectangle recA = new Rectangle(0, 0, recWidth, recHeight);
+            Rectangle recB = new Rectangle(xA, 0, recWidth, recHeight);
+            Rectangle recC = new Rectangle(xB, 0, recWidth, recHeight);
+            Debug.WriteLine(recA.ToString());
+            Debug.WriteLine(recB.ToString());
+            Debug.WriteLine(recC.ToString());
+            Color colorA = ColorTranslator.FromHtml("#89B5B9");
+            Color colorB = ColorTranslator.FromHtml("#8BA55F");
+            Color colorC = ColorTranslator.FromHtml("#C46560");
+            Brush brushA = new SolidBrush(colorA);
+            Brush brushB = new SolidBrush(colorB);
+            Brush brushC = new SolidBrush(colorC);
 
             e.Graphics.FillRectangle(brushA, recA);
             e.Graphics.FillRectangle(brushB, recB);
             e.Graphics.FillRectangle(brushC, recC);
+
+            int gradientRecWidth = recWidth / 3, gradientRecHeight = recHeight;
+            Rectangle gradientRecAB = new Rectangle(xA * 7 / 8, 0, gradientRecWidth, gradientRecHeight);
+            Brush brushAB = new LinearGradientBrush(gradientRecAB, colorA, colorB, 0.01f);
+            e.Graphics.FillRectangle(brushAB, gradientRecAB);
+            Debug.WriteLine(gradientRecAB.ToString());
+
+            Rectangle gradientRecBC = new Rectangle(xB * 15 / 16, 0, gradientRecWidth, gradientRecHeight);
+            Brush brushBC = new LinearGradientBrush(gradientRecBC, colorB, colorC, 0.01f);
+            e.Graphics.FillRectangle(brushBC, gradientRecBC);
+            Debug.WriteLine(gradientRecBC.ToString());
         }
     }
 }

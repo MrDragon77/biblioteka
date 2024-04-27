@@ -36,16 +36,18 @@
             // 
             // BooksButton
             // 
-            BooksButton.Location = new Point(130, 192);
+            BooksButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
+            BooksButton.Location = new Point(56, 192);
             BooksButton.Name = "BooksButton";
-            BooksButton.Size = new Size(94, 50);
+            BooksButton.Size = new Size(106, 50);
             BooksButton.TabIndex = 0;
             BooksButton.Text = "Books";
-            BooksButton.UseVisualStyleBackColor = true;
+            BooksButton.UseVisualStyleBackColor = false;
             BooksButton.Click += BooksButton_Click;
             // 
             // AddBookButton
             // 
+            AddBookButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
             AddBookButton.Location = new Point(335, 192);
             AddBookButton.Name = "AddBookButton";
             AddBookButton.Size = new Size(94, 50);
@@ -56,6 +58,7 @@
             // 
             // ReadersButton
             // 
+            ReadersButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
             ReadersButton.Location = new Point(561, 192);
             ReadersButton.Name = "ReadersButton";
             ReadersButton.Size = new Size(94, 50);
