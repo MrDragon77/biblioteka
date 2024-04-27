@@ -36,10 +36,9 @@
             // 
             // BooksButton
             // 
-            BooksButton.Location = new Point(112, 183);
-            BooksButton.Margin = new Padding(3, 4, 3, 4);
+            BooksButton.Location = new Point(130, 192);
             BooksButton.Name = "BooksButton";
-            BooksButton.Size = new Size(107, 67);
+            BooksButton.Size = new Size(94, 50);
             BooksButton.TabIndex = 0;
             BooksButton.Text = "Books";
             BooksButton.UseVisualStyleBackColor = true;
@@ -47,10 +46,9 @@
             // 
             // AddBookButton
             // 
-            AddBookButton.Location = new Point(310, 183);
-            AddBookButton.Margin = new Padding(3, 4, 3, 4);
+            AddBookButton.Location = new Point(335, 192);
             AddBookButton.Name = "AddBookButton";
-            AddBookButton.Size = new Size(107, 67);
+            AddBookButton.Size = new Size(94, 50);
             AddBookButton.TabIndex = 1;
             AddBookButton.Text = "Add book";
             AddBookButton.UseVisualStyleBackColor = true;
@@ -58,10 +56,9 @@
             // 
             // ReadersButton
             // 
-            ReadersButton.Location = new Point(521, 183);
-            ReadersButton.Margin = new Padding(3, 4, 3, 4);
+            ReadersButton.Location = new Point(561, 192);
             ReadersButton.Name = "ReadersButton";
-            ReadersButton.Size = new Size(107, 67);
+            ReadersButton.Size = new Size(94, 50);
             ReadersButton.TabIndex = 2;
             ReadersButton.Text = "Readers";
             ReadersButton.UseVisualStyleBackColor = true;
@@ -69,10 +66,10 @@
             // 
             // LogOutButton
             // 
-            LogOutButton.Location = new Point(12, 13);
-            LogOutButton.Margin = new Padding(3, 4, 3, 4);
+            LogOutButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            LogOutButton.Location = new Point(12, 12);
             LogOutButton.Name = "LogOutButton";
-            LogOutButton.Size = new Size(78, 36);
+            LogOutButton.Size = new Size(74, 28);
             LogOutButton.TabIndex = 3;
             LogOutButton.Text = "Log out";
             LogOutButton.UseVisualStyleBackColor = true;
@@ -80,16 +77,16 @@
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(LogOutButton);
             Controls.Add(ReadersButton);
             Controls.Add(AddBookButton);
             Controls.Add(BooksButton);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "MainForm";
             Text = "MainForm";
+            Paint += MainForm_Paint;
             ResumeLayout(false);
         }
 
