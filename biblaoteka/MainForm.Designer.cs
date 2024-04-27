@@ -41,7 +41,7 @@
             BooksButton.Name = "BooksButton";
             BooksButton.Size = new Size(100, 200);
             BooksButton.TabIndex = 0;
-            BooksButton.Text = "Books";
+            BooksButton.Text = "Книги";
             BooksButton.UseVisualStyleBackColor = false;
             BooksButton.Click += BooksButton_Click;
             // 
@@ -52,7 +52,7 @@
             AddBookButton.Name = "AddBookButton";
             AddBookButton.Size = new Size(100, 200);
             AddBookButton.TabIndex = 1;
-            AddBookButton.Text = "Add book";
+            AddBookButton.Text = "Пополнение книг";
             AddBookButton.UseVisualStyleBackColor = false;
             AddBookButton.Click += AddBookButton_Click;
             // 
@@ -63,7 +63,7 @@
             ReadersButton.Name = "ReadersButton";
             ReadersButton.Size = new Size(100, 200);
             ReadersButton.TabIndex = 2;
-            ReadersButton.Text = "Readers";
+            ReadersButton.Text = "Читатели";
             ReadersButton.UseVisualStyleBackColor = false;
             ReadersButton.Click += ReadersButton_Click;
             // 
@@ -72,9 +72,9 @@
             LogOutButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             LogOutButton.Location = new Point(12, 12);
             LogOutButton.Name = "LogOutButton";
-            LogOutButton.Size = new Size(74, 28);
+            LogOutButton.Size = new Size(66, 28);
             LogOutButton.TabIndex = 3;
-            LogOutButton.Text = "Log out";
+            LogOutButton.Text = "Выйти";
             LogOutButton.UseVisualStyleBackColor = true;
             LogOutButton.Click += LogOutButton_Click;
             // 
@@ -88,7 +88,7 @@
             Controls.Add(AddBookButton);
             Controls.Add(BooksButton);
             Name = "MainForm";
-            Text = "MainForm";
+            Text = "Библиотека - Главная страница";
             Paint += MainForm_Paint;
             ResumeLayout(false);
         }

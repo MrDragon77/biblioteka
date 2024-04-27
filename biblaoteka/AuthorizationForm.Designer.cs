@@ -107,7 +107,7 @@
             Controls.Add(PasswordTextBox);
             Controls.Add(UserNameTextBox);
             Name = "AuthorizationForm";
-            Text = "Authorization";
+            Text = "Библиотека - Авторизация";
             ResumeLayout(false);
             PerformLayout();
         }

@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             ReadersTableDataGridView = new DataGridView();
+            fixbutton = new Button();
+            BackButton = new Button();
+            NewReaderButton = new Button();
             Index = new DataGridViewTextBoxColumn();
             FullName = new DataGridViewTextBoxColumn();
             BirthDate = new DataGridViewTextBoxColumn();
             AmountTakenBooks = new DataGridViewTextBoxColumn();
-            fixbutton = new Button();
-            BackButton = new Button();
-            NewReaderButton = new Button();
             ((System.ComponentModel.ISupportInitialize)ReadersTableDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -53,38 +53,13 @@
             ReadersTableDataGridView.TabIndex = 0;
             ReadersTableDataGridView.CellDoubleClick += ReadersTableDataGridView_CellDoubleClick;
             // 
-            // Index
-            // 
-            Index.HeaderText = "Index";
-            Index.Name = "Index";
-            Index.ReadOnly = true;
-            // 
-            // FullName
-            // 
-            FullName.HeaderText = "Full Name";
-            FullName.Name = "FullName";
-            FullName.ReadOnly = true;
-            FullName.Width = 200;
-            // 
-            // BirthDate
-            // 
-            BirthDate.HeaderText = "Birth Date";
-            BirthDate.Name = "BirthDate";
-            BirthDate.ReadOnly = true;
-            // 
-            // AmountTakenBooks
-            // 
-            AmountTakenBooks.HeaderText = "Amount of Taken Books";
-            AmountTakenBooks.Name = "AmountTakenBooks";
-            AmountTakenBooks.ReadOnly = true;
-            // 
             // fixbutton
             // 
             fixbutton.Location = new Point(169, 384);
             fixbutton.Name = "fixbutton";
             fixbutton.Size = new Size(82, 54);
             fixbutton.TabIndex = 1;
-            fixbutton.Text = "fix indexes";
+            fixbutton.Text = "почини индексы";
             fixbutton.UseVisualStyleBackColor = true;
             fixbutton.Click += fixbutton_Click;
             // 
@@ -94,7 +69,7 @@
             BackButton.Name = "BackButton";
             BackButton.Size = new Size(105, 54);
             BackButton.TabIndex = 2;
-            BackButton.Text = "<- Back";
+            BackButton.Text = "<- Назад";
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
@@ -104,9 +79,34 @@
             NewReaderButton.Name = "NewReaderButton";
             NewReaderButton.Size = new Size(102, 50);
             NewReaderButton.TabIndex = 3;
-            NewReaderButton.Text = "New Reader";
+            NewReaderButton.Text = "Добавить читателя";
             NewReaderButton.UseVisualStyleBackColor = true;
             NewReaderButton.Click += NewReaderButton_Click;
+            // 
+            // Index
+            // 
+            Index.HeaderText = "Индекс";
+            Index.Name = "Index";
+            Index.ReadOnly = true;
+            // 
+            // FullName
+            // 
+            FullName.HeaderText = "ФИО";
+            FullName.Name = "FullName";
+            FullName.ReadOnly = true;
+            FullName.Width = 200;
+            // 
+            // BirthDate
+            // 
+            BirthDate.HeaderText = "Дата рождения";
+            BirthDate.Name = "BirthDate";
+            BirthDate.ReadOnly = true;
+            // 
+            // AmountTakenBooks
+            // 
+            AmountTakenBooks.HeaderText = "Кол-во взятых книг";
+            AmountTakenBooks.Name = "AmountTakenBooks";
+            AmountTakenBooks.ReadOnly = true;
             // 
             // ReadersTableForm
             // 
@@ -118,7 +118,7 @@
             Controls.Add(fixbutton);
             Controls.Add(ReadersTableDataGridView);
             Name = "ReadersTableForm";
-            Text = "ReadersForm";
+            Text = "Библиотека - Читатели";
             ((System.ComponentModel.ISupportInitialize)ReadersTableDataGridView).EndInit();
             ResumeLayout(false);
         }
@@ -126,12 +126,12 @@
         #endregion
 
         private DataGridView ReadersTableDataGridView;
+        private Button fixbutton;
+        private Button BackButton;
+        private Button NewReaderButton;
         private DataGridViewTextBoxColumn Index;
         private DataGridViewTextBoxColumn FullName;
         private DataGridViewTextBoxColumn BirthDate;
         private DataGridViewTextBoxColumn AmountTakenBooks;
-        private Button fixbutton;
-        private Button BackButton;
-        private Button NewReaderButton;
     }
 }

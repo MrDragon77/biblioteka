@@ -57,12 +57,13 @@ namespace biblaoteka
             BookDataGV.BackgroundColor = SystemColors.ActiveCaption;
             BookDataGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BookDataGV.Columns.AddRange(new DataGridViewColumn[] { IdClmn, NameClmn, AuthorClmn, IsdClmn, GenreClmn, AmountClmn });
-            BookDataGV.Location = new Point(0, 25);
+            BookDataGV.Location = new Point(0, 19);
+            BookDataGV.Margin = new Padding(3, 2, 3, 2);
             BookDataGV.Name = "BookDataGV";
             BookDataGV.ReadOnly = true;
             BookDataGV.RowHeadersWidth = 51;
             BookDataGV.RowTemplate.Height = 29;
-            BookDataGV.Size = new Size(800, 425);
+            BookDataGV.Size = new Size(700, 319);
             BookDataGV.TabIndex = 0;
             // 
             // IdClmn
@@ -120,7 +121,7 @@ namespace biblaoteka
             toolStrip1.Items.AddRange(new ToolStripItem[] { MethodComboBox, FindBox, FindButton, toolStripSeparator1, GenreComboBox, AddNewBox, DeleteBtn, SaveBtn, LoadBtn });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 28);
+            toolStrip1.Size = new Size(700, 28);
             toolStrip1.TabIndex = 3;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -130,7 +131,7 @@ namespace biblaoteka
             MethodComboBox.ForeColor = SystemColors.InactiveCaptionText;
             MethodComboBox.Items.AddRange(new object[] { "Назвние", "Автор", "Издание" });
             MethodComboBox.Name = "MethodComboBox";
-            MethodComboBox.Size = new Size(100, 28);
+            MethodComboBox.Size = new Size(88, 28);
             // 
             // FindBox
             // 
@@ -138,7 +139,7 @@ namespace biblaoteka
             FindBox.BackColor = SystemColors.InactiveCaption;
             FindBox.BorderStyle = BorderStyle.FixedSingle;
             FindBox.Name = "FindBox";
-            FindBox.Size = new Size(150, 27);
+            FindBox.Size = new Size(132, 23);
             // 
             // FindButton
             // 
@@ -146,7 +147,7 @@ namespace biblaoteka
             FindButton.Image = (Image)resources.GetObject("FindButton.Image");
             FindButton.ImageTransparentColor = Color.Magenta;
             FindButton.Name = "FindButton";
-            FindButton.Size = new Size(29, 25);
+            FindButton.Size = new Size(24, 25);
             FindButton.Text = "toolStripButton1";
             FindButton.Click += FindButton_Click;
             // 
@@ -159,7 +160,7 @@ namespace biblaoteka
             // 
             GenreComboBox.Items.AddRange(new object[] { "Любой жанр", "Роман", "Комедия ", "Драма" });
             GenreComboBox.Name = "GenreComboBox";
-            GenreComboBox.Size = new Size(121, 28);
+            GenreComboBox.Size = new Size(106, 28);
             GenreComboBox.DropDownClosed += GenreComboBox_DropDownClosed;
             // 
             // AddNewBox
@@ -216,13 +217,14 @@ namespace biblaoteka
             // 
             // BookTableForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(toolStrip1);
             Controls.Add(BookDataGV);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "BookTableForm";
-            Text = "1";
+            Text = "Библиотека - Книги";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)BookDataGV).EndInit();
             toolStrip1.ResumeLayout(false);

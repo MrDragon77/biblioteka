@@ -47,9 +47,9 @@
             ReaderFullNameLabel.AutoSize = true;
             ReaderFullNameLabel.Location = new Point(21, 53);
             ReaderFullNameLabel.Name = "ReaderFullNameLabel";
-            ReaderFullNameLabel.Size = new Size(58, 15);
+            ReaderFullNameLabel.Size = new Size(34, 15);
             ReaderFullNameLabel.TabIndex = 0;
-            ReaderFullNameLabel.Text = "FullName";
+            ReaderFullNameLabel.Text = "ФИО";
             // 
             // ReaderIndexTextBox
             // 
@@ -72,9 +72,9 @@
             ReaderIndexLabel.AutoSize = true;
             ReaderIndexLabel.Location = new Point(21, 24);
             ReaderIndexLabel.Name = "ReaderIndexLabel";
-            ReaderIndexLabel.Size = new Size(36, 15);
+            ReaderIndexLabel.Size = new Size(47, 15);
             ReaderIndexLabel.TabIndex = 2;
-            ReaderIndexLabel.Text = "Index";
+            ReaderIndexLabel.Text = "Индекс";
             // 
             // ReaderBirthDateTextBox
             // 
@@ -89,9 +89,9 @@
             ReaderBirthDateLabel.AutoSize = true;
             ReaderBirthDateLabel.Location = new Point(21, 81);
             ReaderBirthDateLabel.Name = "ReaderBirthDateLabel";
-            ReaderBirthDateLabel.Size = new Size(56, 15);
+            ReaderBirthDateLabel.Size = new Size(90, 15);
             ReaderBirthDateLabel.TabIndex = 4;
-            ReaderBirthDateLabel.Text = "BirthDate";
+            ReaderBirthDateLabel.Text = "Дата рождения";
             // 
             // ReaderAmountTakenBooksTextBox
             // 
@@ -106,9 +106,9 @@
             ReaderAmountTakenBooksLabel.AutoSize = true;
             ReaderAmountTakenBooksLabel.Location = new Point(21, 112);
             ReaderAmountTakenBooksLabel.Name = "ReaderAmountTakenBooksLabel";
-            ReaderAmountTakenBooksLabel.Size = new Size(133, 15);
+            ReaderAmountTakenBooksLabel.Size = new Size(114, 15);
             ReaderAmountTakenBooksLabel.TabIndex = 6;
-            ReaderAmountTakenBooksLabel.Text = "Amount of Taken Books";
+            ReaderAmountTakenBooksLabel.Text = "Кол-во взятых книг";
             // 
             // label6
             // 
@@ -121,22 +121,22 @@
             // 
             // SaveChangesButton
             // 
-            SaveChangesButton.Location = new Point(608, 360);
+            SaveChangesButton.Location = new Point(603, 360);
             SaveChangesButton.Name = "SaveChangesButton";
-            SaveChangesButton.Size = new Size(72, 57);
+            SaveChangesButton.Size = new Size(77, 57);
             SaveChangesButton.TabIndex = 11;
-            SaveChangesButton.Text = "Save Changes";
+            SaveChangesButton.Text = "Сохранить изменения";
             SaveChangesButton.UseVisualStyleBackColor = true;
             SaveChangesButton.Visible = false;
             SaveChangesButton.Click += SaveChangesButton_Click;
             // 
             // DiscardChangesButton
             // 
-            DiscardChangesButton.Location = new Point(697, 360);
+            DiscardChangesButton.Location = new Point(686, 360);
             DiscardChangesButton.Name = "DiscardChangesButton";
-            DiscardChangesButton.Size = new Size(72, 57);
+            DiscardChangesButton.Size = new Size(83, 57);
             DiscardChangesButton.TabIndex = 12;
-            DiscardChangesButton.Text = "Discard Changes";
+            DiscardChangesButton.Text = "Отменить изменения";
             DiscardChangesButton.UseVisualStyleBackColor = true;
             DiscardChangesButton.Visible = false;
             DiscardChangesButton.Click += DiscardChangesButton_Click;
@@ -147,7 +147,7 @@
             BackButton.Name = "BackButton";
             BackButton.Size = new Size(101, 52);
             BackButton.TabIndex = 13;
-            BackButton.Text = "<- Back";
+            BackButton.Text = "<- Назад";
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
@@ -169,7 +169,7 @@
             Controls.Add(ReaderIndexTextBox);
             Controls.Add(ReaderFullNameLabel);
             Name = "ReaderForm";
-            Text = "ReaderTable";
+            Text = "Библиотека - Окно читателя";
             ResumeLayout(false);
             PerformLayout();
         }

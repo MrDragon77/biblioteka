@@ -23,7 +23,7 @@ namespace biblaoteka
             FileStream fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
             string line = "000000";
-            while(!sr.EndOfStream)
+            while (!sr.EndOfStream)
             {
                 line = sr.ReadLine();
             }
@@ -111,7 +111,7 @@ namespace biblaoteka
             //}
             int searchIndex = 0;
             bool founded = false;
-            string[] line = {"0"};
+            string[] line = { "0" };
             for (int i = 0; i < readerstxt.Length; i++)
             {
                 line = readerstxt[i].Split(' ');
