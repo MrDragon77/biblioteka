@@ -36,10 +36,10 @@
             // 
             // BooksButton
             // 
-            BooksButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
-            BooksButton.Location = new Point(56, 192);
+            BooksButton.BackColor = Color.FromArgb(177, 216, 220);
+            BooksButton.Location = new Point(86, 120);
             BooksButton.Name = "BooksButton";
-            BooksButton.Size = new Size(106, 50);
+            BooksButton.Size = new Size(100, 200);
             BooksButton.TabIndex = 0;
             BooksButton.Text = "Books";
             BooksButton.UseVisualStyleBackColor = false;
@@ -47,24 +47,24 @@
             // 
             // AddBookButton
             // 
-            AddBookButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
-            AddBookButton.Location = new Point(335, 192);
+            AddBookButton.BackColor = Color.FromArgb(185, 210, 143);
+            AddBookButton.Location = new Point(358, 120);
             AddBookButton.Name = "AddBookButton";
-            AddBookButton.Size = new Size(94, 50);
+            AddBookButton.Size = new Size(100, 200);
             AddBookButton.TabIndex = 1;
             AddBookButton.Text = "Add book";
-            AddBookButton.UseVisualStyleBackColor = true;
+            AddBookButton.UseVisualStyleBackColor = false;
             AddBookButton.Click += AddBookButton_Click;
             // 
             // ReadersButton
             // 
-            ReadersButton.BackColor = ColorTranslator.FromHtml("#E2A5A2");
-            ReadersButton.Location = new Point(561, 192);
+            ReadersButton.BackColor = Color.FromArgb(226, 144, 139);
+            ReadersButton.Location = new Point(630, 120);
             ReadersButton.Name = "ReadersButton";
-            ReadersButton.Size = new Size(94, 50);
+            ReadersButton.Size = new Size(100, 200);
             ReadersButton.TabIndex = 2;
             ReadersButton.Text = "Readers";
-            ReadersButton.UseVisualStyleBackColor = true;
+            ReadersButton.UseVisualStyleBackColor = false;
             ReadersButton.Click += ReadersButton_Click;
             // 
             // LogOutButton
