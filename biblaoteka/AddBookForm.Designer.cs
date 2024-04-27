@@ -218,6 +218,7 @@
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "AddBookForm";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Библиотека - Добавление книги";
             ((System.ComponentModel.ISupportInitialize)AmountUpDown).EndInit();
             ResumeLayout(false);
