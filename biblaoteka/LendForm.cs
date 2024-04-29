@@ -146,23 +146,29 @@ namespace biblaoteka
                 FileStream fs = new FileStream(pathToDB_takenBooks, FileMode.Open, FileAccess.Read);
                 StreamReader sr = new StreamReader(fs);
                 string[] line = new string[4];
-                bool isFounded = false;
+                int founded = 0;
                 while (!sr.EndOfStream)
                 {
                     line = sr.ReadLine().Split(' ');
                     if (Convert.ToBoolean(Int32.Parse(line[0])) == true && Int32.Parse(line[1]) == savedBook.id && line[2] == savedReader[0])
                     {
                         //match
-                        isFounded = true;
-                        break;
+                        founded++;
+
+                    }
+                    if (Convert.ToBoolean(Int32.Parse(line[0])) == false && Int32.Parse(line[1]) == savedBook.id && line[2] == savedReader[0])
+                    {
+                        //match
+                        founded--;
+
                     }
                 }
                 fs.Close();
-                if (isFounded)
+                if (founded > 0)
                 {
                     fs = new FileStream(pathToDB_takenBooks, FileMode.Append, FileAccess.Write);
                     StreamWriter sw = new StreamWriter(fs);
-                    string lineSW = Convert.ToInt32(lendMode).ToString() + ' ' + savedBook.id.ToString("D" + 6) + savedReader[0]
+                    string lineSW = Convert.ToInt32(lendMode).ToString() + ' ' + savedBook.id.ToString("D" + 6) + ' ' + savedReader[0]
                     + ' ' + DateTime.Now.ToString().Substring(0, 10);
                     sw.WriteLine(lineSW);
                     sw.Flush();
