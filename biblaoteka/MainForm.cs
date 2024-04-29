@@ -15,6 +15,7 @@ namespace biblaoteka
 {
     public partial class MainForm : Form
     {
+        BookTableForm bookTableForm = new BookTableForm();
         public MainForm()
         {
             InitializeComponent();
@@ -23,17 +24,18 @@ namespace biblaoteka
         private void BooksButton_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("going to BookTableForm");
-            this.Close();
-            BookTableForm bookTableForm = new BookTableForm();
-            bookTableForm.Show();
+            this.Hide();
+            bookTableForm.ShowDialog();
+            this.Show();
         }
 
         private void AddBookButton_Click(object sender, EventArgs e)
         {
             Debug.WriteLine("going to AddBookForm");
-            this.Close();
+            this.Hide();
             AddBookForm addBookForm = new AddBookForm();
-            addBookForm.Show();
+            addBookForm.ShowDialog();
+            this.Show();
         }
 
         private void ReadersButton_Click(object sender, EventArgs e)

@@ -43,6 +43,7 @@ namespace biblaoteka
                 while (!sr.EndOfStream)
                 {
                     perms = sr.ReadLine().Split(' ');
+                    //Debug.WriteLine(perms[0] + " " + perms[1]);
                     Debug.WriteLine(CreateMD5(PasswordTextBox.Text));
                     if (UserNameTextBox.Text == perms[0] && CreateMD5(PasswordTextBox.Text) == perms[1])
                     {
@@ -55,7 +56,7 @@ namespace biblaoteka
                     }
                 }
                 sr.Close();
-                MessageBox.Show("Wrong username or password\nPlease try again.", "Incorrect password");
+                MessageBox.Show("Неверное имя пользователя или пароль\nПопробуйте ещё раз.", "Неверный пароль");
                 Debug.WriteLine("wrong, still that form");
             }
             catch (Exception ex)

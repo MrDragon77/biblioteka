@@ -43,6 +43,15 @@ namespace Books
             genre = new_genre;
             id = 0;
         }
+        public Book(string new_name, string new_author, string new_isd, int new_genre, int new_amount, int new_id)
+        {
+            name = new_name;
+            author = new_author;
+            isd = new_isd;
+            amount = new_amount;
+            genre = new_genre;
+            id = new_id;
+        }
         public string IntToGenre(int genre)
         {
             switch (genre)
@@ -69,14 +78,6 @@ namespace Books
                     return 3;
             }
             return 0;
-        }
-        public Book(string new_name, string new_author, string new_isd, int new_genre, int new_amount, int new_id) {
-            name = new_name;
-            author = new_author;
-            isd = new_isd;
-            amount = new_amount;
-            genre = new_genre;
-            id = new_id;
         }
 
         public void Save(StreamWriter file)
@@ -213,6 +214,7 @@ namespace Books
             }
             return true;
         }
+
         public virtual void Delete(T elem)
         {
             if (Find(elem))
@@ -328,6 +330,22 @@ namespace Books
             }
             
             return new_storage;
+        }
+        public Book FindById(int id)
+        {
+            to_beginning();
+            Book book = new Book();
+            int ListPos = 0;
+            while (CurNode != null)
+            {
+                if (CurNode.data.id == id)
+                {
+                    return CurNode.data;
+                }
+                CurNode = CurNode.next;
+                ListPos++;
+            }
+            return null;
         }
         public MyBookStorage<Book> FindByAuthor(string needed_author)
         {

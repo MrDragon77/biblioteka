@@ -1,4 +1,5 @@
 using Books;
+using System.Diagnostics;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -260,6 +261,28 @@ namespace biblaoteka
             book_id = AllBookStorage.getData().id + 1;
             GenreComboBox_DropDownClosed(sender, e);
             file.Close();
+        }
+
+        private void BookDataGV_DoubleClick(object sender, EventArgs e)
+        {
+            int rowIndex = BookDataGV.SelectedCells[0].RowIndex;
+            //string index = ReadersTableDataGridView.SelectedRows[0].Cells[0].Value.ToString();
+            int index = Int32.Parse(BookDataGV[0, rowIndex].Value.ToString());
+            Debug.WriteLine(rowIndex);
+            Debug.WriteLine(index);
+            Book selected_book = new Book(BookDataGV.Rows[rowIndex].Cells[1].Value.ToString(),
+                        BookDataGV.Rows[rowIndex].Cells[2].Value.ToString(),
+                        BookDataGV.Rows[rowIndex].Cells[3].Value.ToString(),
+                        GenreToInt(BookDataGV.Rows[rowIndex].Cells[4].Value.ToString()),
+                        Convert.ToInt32(BookDataGV.Rows[rowIndex].Cells[5].Value));
+            BookForm bookForm = new BookForm(index, selected_book);
+            bookForm.ShowDialog();
+            GenreComboBox_DropDownClosed(sender, e);
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
