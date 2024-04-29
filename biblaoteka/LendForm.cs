@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
@@ -14,11 +15,15 @@ namespace biblaoteka
     public partial class LendForm : Form
     {
         string pathToDB_takenBooks = "TakenBooks.txt";
+        //структура файла: id_операции id_книги id_читателя дата
         //string pathToDB_books = "Books.txt";
         string pathToDB_readers = "Readers.txt";
         bool lendMode = true; //true - выдача, false - приём книги
-        //string[] savedBook = new string[n];
+        //string[] savedBook = new string[2];
+        Books.Book savedBook = new Books.Book();
         string[] savedReader = new string[2];
+        bool readerChoosen = false;
+        bool bookChoosen = false;
         public LendForm()
         {
             InitializeComponent();
@@ -27,7 +32,7 @@ namespace biblaoteka
         {
             this.lendMode = lendMode;
             InitializeComponent();
-            if(lendMode)
+            if (lendMode)
             {
                 //visible to lend mode true items must be visible = true;
                 //items are not connected to lend mode true must be invisible;
@@ -44,7 +49,8 @@ namespace biblaoteka
             }
             else
             {
-                //load book
+                savedBook = BookTableForm.AllBookStorage.FindById(bookIndex);
+                bookChoosen = true;
             }
 
             //read reader from file by index
@@ -73,9 +79,9 @@ namespace biblaoteka
                 //SaveChangesButton.Visible = false;
                 //DiscardChangesButton.Visible = false;
                 fs.Close();
+                readerChoosen = true;
             }
-
-
+            
 
         }
         //for loading book from code to form
@@ -99,6 +105,40 @@ namespace biblaoteka
         {
             savedReader[0] = ReaderIndexTextBox.Text;
             savedReader[1] = ReaderFullNameTextBox.Text;
+        }
+
+        private void LendButton_Click(object sender, EventArgs e)
+        {
+            if(!bookChoosen)
+            {
+                MessageBox.Show("Выберите книгу");
+                return;
+            }
+            if (!readerChoosen)
+            {
+                MessageBox.Show("Выберите читателя");
+                return;
+            }
+            if (lendMode)
+            {
+                if(savedBook.amount <= 0)
+                {
+                    MessageBox.Show("Экземпляров этой книги нет в хранилище.\nНевозможно выдать.");
+                    return;
+                }
+
+                FileStream fs = new FileStream(pathToDB_takenBooks, FileMode.Open, FileAccess.Write);
+                StreamWriter sr = new StreamWriter(fs);
+                string line = lendMode.ToString() + ' '+ savedBook.id.ToString() + savedReader[0]
+                    + ' ' + DateTime.Now.ToString();
+                sr.WriteLine(line);
+                fs.Close();
+                MessageBox.Show("Книга выдана.");
+            }
+            else
+            {
+
+            }
         }
     }
 }
