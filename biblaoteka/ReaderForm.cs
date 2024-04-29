@@ -156,5 +156,21 @@ namespace biblaoteka
         {
             this.Close();
         }
+
+        private void ToLendButton_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LendForm lendForm = new LendForm(true, 0, Int32.Parse(savedReader[0]));
+            lendForm.ShowDialog();
+            this.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LendForm lendForm = new LendForm(false, 0, Int32.Parse(savedReader[0]));
+            lendForm.ShowDialog();
+            this.Show();
+        }
     }
 }

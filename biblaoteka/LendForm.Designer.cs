@@ -123,7 +123,6 @@
             BookIndexTextBox.Location = new Point(166, 43);
             BookIndexTextBox.Margin = new Padding(3, 4, 3, 4);
             BookIndexTextBox.Name = "BookIndexTextBox";
-            BookIndexTextBox.ReadOnly = true;
             BookIndexTextBox.Size = new Size(201, 27);
             BookIndexTextBox.TabIndex = 9;
             // 

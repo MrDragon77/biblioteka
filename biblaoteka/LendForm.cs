@@ -44,12 +44,16 @@ namespace biblaoteka
             //read book from file by index
             if (bookIndex == 0)
             {
+                savedBook = BookTableForm.AllBookStorage.FindById(1);
+                LoadSavedBook();
+                bookChoosen = true;
                 //make ChooseBookButton visible
                 //MoreBookButton - invisible
             }
             else
             {
                 savedBook = BookTableForm.AllBookStorage.FindById(bookIndex);
+                LoadSavedBook();
                 bookChoosen = true;
             }
 
@@ -81,21 +85,21 @@ namespace biblaoteka
                 fs.Close();
                 readerChoosen = true;
             }
-            
+
 
         }
         //for loading book from code to form
-        //private void LoadSavedBook()
-        //{
-        //    BookIndexTextBox.Text = savedBook[0];
-        //    BookFullNameTextBox.Text = savedBook[1];
-        //}
+        private void LoadSavedBook()
+        {
+            BookIndexTextBox.Text = savedBook.id.ToString();
+            BookNameTextBox.Text = savedBook.name.ToString();
+        }
         //for saving book from form to code
-        //private void SaveBook()
-        //{
-        //    savedBook[0] = BookIndexTextBox.Text;
-        //    savedBook[1] = BookFullNameTextBox.Text;
-        //}
+        private void SaveBook()
+        {
+            savedBook.id = Int32.Parse(BookIndexTextBox.Text);
+            savedBook.name = BookNameTextBox.Text;
+        }
         private void LoadSavedReader()
         {
             ReaderIndexTextBox.Text = savedReader[0];
@@ -109,7 +113,7 @@ namespace biblaoteka
 
         private void LendButton_Click(object sender, EventArgs e)
         {
-            if(!bookChoosen)
+            if (!bookChoosen)
             {
                 MessageBox.Show("Выберите книгу");
                 return;
@@ -121,22 +125,56 @@ namespace biblaoteka
             }
             if (lendMode)
             {
-                if(savedBook.amount <= 0)
+                if (savedBook.amount <= 0)
                 {
                     MessageBox.Show("Экземпляров этой книги нет в хранилище.\nНевозможно выдать.");
                     return;
                 }
 
-                FileStream fs = new FileStream(pathToDB_takenBooks, FileMode.Open, FileAccess.Write);
-                StreamWriter sr = new StreamWriter(fs);
-                string line = lendMode.ToString() + ' '+ savedBook.id.ToString() + savedReader[0]
-                    + ' ' + DateTime.Now.ToString();
-                sr.WriteLine(line);
+                FileStream fs = new FileStream(pathToDB_takenBooks, FileMode.Append, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                string line = Convert.ToInt32(lendMode).ToString() + ' ' + savedBook.id.ToString("D" + 6) + ' ' + savedReader[0]
+                    + ' ' + DateTime.Now.ToString().Substring(0, 10);
+                sw.WriteLine(line);
+                sw.Flush();
+                Debug.WriteLine(line);
                 fs.Close();
                 MessageBox.Show("Книга выдана.");
             }
             else
             {
+                FileStream fs = new FileStream(pathToDB_takenBooks, FileMode.Open, FileAccess.Read);
+                StreamReader sr = new StreamReader(fs);
+                string[] line = new string[4];
+                bool isFounded = false;
+                while (!sr.EndOfStream)
+                {
+                    line = sr.ReadLine().Split(' ');
+                    if (Convert.ToBoolean(Int32.Parse(line[0])) == true && Int32.Parse(line[1]) == savedBook.id && line[2] == savedReader[0])
+                    {
+                        //match
+                        isFounded = true;
+                        break;
+                    }
+                }
+                fs.Close();
+                if (isFounded)
+                {
+                    fs = new FileStream(pathToDB_takenBooks, FileMode.Append, FileAccess.Write);
+                    StreamWriter sw = new StreamWriter(fs);
+                    string lineSW = Convert.ToInt32(lendMode).ToString() + ' ' + savedBook.id.ToString("D" + 6) + savedReader[0]
+                    + ' ' + DateTime.Now.ToString().Substring(0, 10);
+                    sw.WriteLine(lineSW);
+                    sw.Flush();
+                    fs.Close();
+                    MessageBox.Show("Книга принята");
+                }
+                else
+                {
+                    MessageBox.Show("Запись о выдаче данной книги не найдена в БД.\nПрием невозможен.");
+                    return;
+                }
+
 
             }
         }

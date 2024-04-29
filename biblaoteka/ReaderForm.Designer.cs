@@ -45,6 +45,8 @@
             BookName = new DataGridViewTextBoxColumn();
             TakenDate = new DataGridViewTextBoxColumn();
             ReturnDate = new DataGridViewTextBoxColumn();
+            ToLendButton = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -204,12 +206,36 @@
             ReturnDate.Name = "ReturnDate";
             ReturnDate.Width = 125;
             // 
+            // ToLendButton
+            // 
+            ToLendButton.Location = new Point(111, 507);
+            ToLendButton.Margin = new Padding(3, 4, 3, 4);
+            ToLendButton.Name = "ToLendButton";
+            ToLendButton.Size = new Size(85, 76);
+            ToLendButton.TabIndex = 15;
+            ToLendButton.Text = "Выдать книгу";
+            ToLendButton.UseVisualStyleBackColor = true;
+            ToLendButton.Click += ToLendButton_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(202, 507);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 76);
+            button1.TabIndex = 16;
+            button1.Text = "Принять книгу";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
             // ReaderForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 192, 189);
             ClientSize = new Size(514, 599);
+            Controls.Add(button1);
+            Controls.Add(ToLendButton);
             Controls.Add(dataGridView1);
             Controls.Add(BackButton);
             Controls.Add(DiscardChangesButton);
@@ -251,5 +277,7 @@
         private DataGridViewTextBoxColumn BookName;
         private DataGridViewTextBoxColumn TakenDate;
         private DataGridViewTextBoxColumn ReturnDate;
+        private Button ToLendButton;
+        private Button button1;
     }
 }
