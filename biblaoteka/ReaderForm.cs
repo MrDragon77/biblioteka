@@ -46,7 +46,6 @@ namespace biblaoteka
 
                 if (Int32.Parse(line[0]) == index)
                 {
-                    savedReader = new string[4];
                     savedReader[0] = line[0];
                     savedReader[1] = line[1] + ' ' + line[2] + ' ' + line[3];
                     savedReader[2] = line[4];
