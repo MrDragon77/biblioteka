@@ -175,6 +175,7 @@
             MoreReaderButton.TabIndex = 15;
             MoreReaderButton.Text = "Открыть страницу читателя";
             MoreReaderButton.UseVisualStyleBackColor = true;
+            MoreReaderButton.Click += MoreReaderButton_Click;
             // 
             // LendButton
             // 

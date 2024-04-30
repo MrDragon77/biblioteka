@@ -184,6 +184,10 @@ namespace biblaoteka
 
             }
         }
+        void Update()
+        {
+            //update data from DB by indexes in ReaderIndexTextBox and BookIndexTextBox
+        }
 
         private void ChooseReaderButton_Click(object sender, EventArgs e)
         {
@@ -208,6 +212,17 @@ namespace biblaoteka
             //DiscardChangesButton.Visible = false;
             fs.Close();
             readerChoosen = true;
+        }
+
+        private void MoreReaderButton_Click(object sender, EventArgs e)
+        {
+            if(!readerChoosen)
+            {
+                MessageBox.Show("Выберите читателя");
+                return;
+            }
+            ReaderForm readerForm = new ReaderForm(Int32.Parse(savedReader[0]));
+            readerForm.ShowDialog();
         }
     }
 }
