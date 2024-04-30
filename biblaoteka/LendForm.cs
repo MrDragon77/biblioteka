@@ -184,5 +184,30 @@ namespace biblaoteka
 
             }
         }
+
+        private void ChooseReaderButton_Click(object sender, EventArgs e)
+        {
+            ReadersTableForm frm = new ReadersTableForm(true);
+            DialogResult res = frm.ShowDialog();
+            FileStream fs = new FileStream(pathToDB_readers, FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs);
+
+            while (!sr.EndOfStream)
+            {
+                string[] line = sr.ReadLine().Split(' ');
+
+                if (Int32.Parse(line[0]) == (int)res)
+                {
+                    savedReader = new string[4];
+                    savedReader[0] = line[0];
+                    savedReader[1] = line[1] + ' ' + line[2] + ' ' + line[3];
+                }
+            }
+            LoadSavedReader();
+            //SaveChangesButton.Visible = false;
+            //DiscardChangesButton.Visible = false;
+            fs.Close();
+            readerChoosen = true;
+        }
     }
 }

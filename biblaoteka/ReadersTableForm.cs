@@ -16,8 +16,17 @@ namespace biblaoteka
     {
         string pathToDB = "Readers.txt";
         List<Reader> readers;
+        bool lendMode = false; //use true for open ReadersTable in choosing reader mode for LendForm
         public ReadersTableForm()
         {
+            InitializeComponent();
+            readers = new List<Reader>();
+            ReadReadersFromDB();
+            FillTable();
+        }
+        public ReadersTableForm(bool lendMode)
+        {
+            this.lendMode = lendMode;
             InitializeComponent();
             readers = new List<Reader>();
             ReadReadersFromDB();
@@ -116,8 +125,16 @@ namespace biblaoteka
             int index = Int32.Parse(ReadersTableDataGridView[0, rowIndex].Value.ToString());
             Debug.WriteLine(rowIndex);
             Debug.WriteLine(index);
-            ReaderForm readerForm = new ReaderForm(index);
-            readerForm.ShowDialog();
+            if(lendMode)
+            {
+                this.DialogResult = (DialogResult)index;
+            }
+            else
+            {
+                ReaderForm readerForm = new ReaderForm(index);
+                readerForm.ShowDialog();
+            }
+
         }
 
         private void BackButton_Click(object sender, EventArgs e)
