@@ -1,5 +1,8 @@
 using Books;
+using Microsoft.VisualBasic.ApplicationServices;
 using System.Diagnostics;
+using System.Drawing.Printing;
+using System.Reflection.Emit;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
@@ -10,9 +13,10 @@ namespace biblaoteka
         public static MyBookStorage<Book> AllBookStorage = new MyBookStorage<Book>();
         MyBookStorage<Book> CurBookStorage = new MyBookStorage<Book>();
         public static int book_id = 4;
-        Book book1 = new Book("Война и мир", "Толстой", "Москва 2010", 1, 14, 1);
-        Book book2 = new Book("Ревизор", "Гоголь", "Москва 2010", 2, 3, 2);
-        Book book3 = new Book("Сумерки", "Я не помню...", "Уфа 2024", 3, 42, 3);
+        bool lendMode = false;
+        //Book book1 = new Book("Война и мир", "Толстой", "Москва 2010", 1, 14, 1);
+        //Book book2 = new Book("Ревизор", "Гоголь", "Москва 2010", 2, 3, 2);
+        //Book book3 = new Book("Сумерки", "Я не помню...", "Уфа 2024", 3, 42, 3);
         void CreateTable()
         {
             /*размер таблицы*/
@@ -100,9 +104,27 @@ namespace biblaoteka
         }
         public BookTableForm()
         {
-            AllBookStorage.push_back(book1);
-            AllBookStorage.push_back(book2);
-            AllBookStorage.push_back(book3);
+            //Для корректной работы нужно заменить сторку с адресом файла!!!
+
+            Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+
+            CurBookStorage = AllBookStorage;
+            InitializeComponent();
+            GenreComboBox.SelectedIndex = 0;
+            MethodComboBox.SelectedIndex = 0;
+            // CreateTable();
+            FillTable(AllBookStorage);
+        }
+
+        public BookTableForm(bool new_lendMode)
+        {
+            lendMode = new_lendMode;
+
+
+            //Для корректной работы нужно заменить сторку с адресом файла!!!
+
+            Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+
             CurBookStorage = AllBookStorage;
             InitializeComponent();
             GenreComboBox.SelectedIndex = 0;
@@ -207,15 +229,8 @@ namespace biblaoteka
             }
         }
 
-        private void SaveBtn_Click(object sender, EventArgs e)
+        private void SaveBooks(string filename)
         {
-            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
-            {
-                return;
-            }
-
-            string filename = saveFileDialog.FileName;
-
             StreamWriter file = new StreamWriter(filename);
             file.WriteLine("Книги: ");
             file.WriteLine(AllBookStorage.size().ToString());
@@ -228,15 +243,19 @@ namespace biblaoteka
             file.Close();
         }
 
-        private void LoadBtn_Click(object sender, EventArgs e)
+        private void SaveBtn_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
             {
                 return;
             }
 
-            string filename = openFileDialog.FileName;
+            string filename = saveFileDialog.FileName;
+            SaveBooks(filename);
+        }
 
+        private void Load_File(string filename)
+        {
             StreamReader file = new StreamReader(filename);
             string type = file.ReadLine();
             if (type != "Книги: ")
@@ -259,8 +278,20 @@ namespace biblaoteka
                 AllBookStorage.push_back(elem);
             }
             book_id = AllBookStorage.getData().id + 1;
-            GenreComboBox_DropDownClosed(sender, e);
             file.Close();
+        }
+
+        private void LoadBtn_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.Cancel)
+            {
+                return;
+            }
+
+            string filename = openFileDialog.FileName;
+            Load_File(filename);
+            Debug.WriteLine(filename);
+            GenreComboBox_DropDownClosed(sender, e);
         }
 
         private void BookDataGV_DoubleClick(object sender, EventArgs e)
@@ -275,14 +306,29 @@ namespace biblaoteka
                         BookDataGV.Rows[rowIndex].Cells[3].Value.ToString(),
                         GenreToInt(BookDataGV.Rows[rowIndex].Cells[4].Value.ToString()),
                         Convert.ToInt32(BookDataGV.Rows[rowIndex].Cells[5].Value));
-            BookForm bookForm = new BookForm(index, selected_book);
-            bookForm.ShowDialog();
-            GenreComboBox_DropDownClosed(sender, e);
+            if (lendMode == true)
+            {
+                this.DialogResult = (DialogResult)index;
+            }
+            else
+            {
+                BookForm bookForm = new BookForm(index, selected_book);
+                bookForm.ShowDialog();
+                GenreComboBox_DropDownClosed(sender, e);
+            }
         }
 
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BookTableForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            //Для корректной работы нужно заменить сторку с адресом файла!!!
+
+            SaveBooks("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save"); 
         }
     }
 }

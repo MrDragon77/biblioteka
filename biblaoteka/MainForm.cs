@@ -15,7 +15,7 @@ namespace biblaoteka
 {
     public partial class MainForm : Form
     {
-        BookTableForm bookTableForm = new BookTableForm();
+        public static BookTableForm bookTableForm = new BookTableForm();
         public MainForm()
         {
             InitializeComponent();

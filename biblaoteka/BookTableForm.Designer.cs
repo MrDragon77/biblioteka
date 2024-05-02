@@ -240,6 +240,7 @@ namespace biblaoteka
             Controls.Add(BookDataGV);
             Name = "BookTableForm";
             Text = "Библиотека - Книги";
+            FormClosed += BookTableForm_FormClosed;
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)BookDataGV).EndInit();
             toolStrip1.ResumeLayout(false);

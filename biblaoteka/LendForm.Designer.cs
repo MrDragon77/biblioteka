@@ -144,6 +144,7 @@
             ChooseBookButton.TabIndex = 12;
             ChooseBookButton.Text = "Выбрать книгу";
             ChooseBookButton.UseVisualStyleBackColor = true;
+            ChooseBookButton.Click += ChooseBookButton_Click;
             // 
             // ChooseReaderButton
             // 
@@ -165,6 +166,7 @@
             MoreBookButton.TabIndex = 14;
             MoreBookButton.Text = "Открыть страницу книги";
             MoreBookButton.UseVisualStyleBackColor = true;
+            MoreBookButton.Click += MoreBookButton_Click;
             // 
             // MoreReaderButton
             // 

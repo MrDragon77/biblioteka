@@ -14,6 +14,7 @@ namespace biblaoteka
 {
     public partial class LendForm : Form
     {
+        BookTableForm bookTableForm = new BookTableForm(true);
         string pathToDB_takenBooks = "TakenBooks.txt";
         //структура файла: id_операции id_книги id_читателя дата
         //string pathToDB_books = "Books.txt";
@@ -26,6 +27,7 @@ namespace biblaoteka
         bool bookChoosen = false;
         public LendForm()
         {
+            bookTableForm = new BookTableForm(true);
             InitializeComponent();
         }
         public LendForm(bool lendMode, int bookIndex, int readerIndex)
@@ -94,12 +96,15 @@ namespace biblaoteka
             BookIndexTextBox.Text = savedBook.id.ToString();
             BookNameTextBox.Text = savedBook.name.ToString();
         }
+
         //for saving book from form to code
-        private void SaveBook()
+        /*private void SaveBook()
         {
             savedBook.id = Int32.Parse(BookIndexTextBox.Text);
             savedBook.name = BookNameTextBox.Text;
-        }
+        }*/
+
+        //Из формы копируется только две характеристики, этот метод не имеет смысла
         private void LoadSavedReader()
         {
             ReaderIndexTextBox.Text = savedReader[0];
@@ -139,6 +144,7 @@ namespace biblaoteka
                 sw.Flush();
                 Debug.WriteLine(line);
                 fs.Close();
+                savedBook.amount = savedBook.amount - 1;
                 MessageBox.Show("Книга выдана.");
             }
             else
@@ -216,13 +222,27 @@ namespace biblaoteka
 
         private void MoreReaderButton_Click(object sender, EventArgs e)
         {
-            if(!readerChoosen)
+            if (!readerChoosen)
             {
                 MessageBox.Show("Выберите читателя");
                 return;
             }
             ReaderForm readerForm = new ReaderForm(Int32.Parse(savedReader[0]));
             readerForm.ShowDialog();
+        }
+
+        private void ChooseBookButton_Click(object sender, EventArgs e)
+        {
+
+            DialogResult res = bookTableForm.ShowDialog();
+            savedBook = BookTableForm.AllBookStorage.FindById((int)res);
+            LoadSavedBook();
+        }
+
+        private void MoreBookButton_Click(object sender, EventArgs e)
+        {
+            BookForm bookForm = new BookForm(savedBook.id, savedBook);
+            bookForm.ShowDialog();
         }
     }
 }
