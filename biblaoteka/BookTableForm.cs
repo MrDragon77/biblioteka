@@ -14,6 +14,7 @@ namespace biblaoteka
         MyBookStorage<Book> CurBookStorage = new MyBookStorage<Book>();
         public static int book_id = 4;
         bool lendMode = false;
+        string pathToDB_Books = "Books.txt";
         //Book book1 = new Book("Война и мир", "Толстой", "Москва 2010", 1, 14, 1);
         //Book book2 = new Book("Ревизор", "Гоголь", "Москва 2010", 2, 3, 2);
         //Book book3 = new Book("Сумерки", "Я не помню...", "Уфа 2024", 3, 42, 3);
@@ -106,7 +107,8 @@ namespace biblaoteka
         {
             //Для корректной работы нужно заменить сторку с адресом файла!!!
 
-            Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+            //Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+            Load_File(pathToDB_Books);
 
             CurBookStorage = AllBookStorage;
             InitializeComponent();
@@ -123,7 +125,8 @@ namespace biblaoteka
 
             //Для корректной работы нужно заменить сторку с адресом файла!!!
 
-            Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+            //Load_File("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+            Load_File(pathToDB_Books);
 
             CurBookStorage = AllBookStorage;
             InitializeComponent();
@@ -328,7 +331,8 @@ namespace biblaoteka
 
             //Для корректной работы нужно заменить сторку с адресом файла!!!
 
-            SaveBooks("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save"); 
+            //SaveBooks("C:\\Users\\kamel\\OneDrive\\Документы\\Books\\Main_save");
+            SaveBooks(pathToDB_Books);
         }
     }
 }
