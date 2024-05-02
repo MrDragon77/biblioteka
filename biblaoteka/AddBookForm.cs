@@ -64,6 +64,7 @@ namespace biblaoteka
                         BookTableForm.AllBookStorage.push_back(book);
                         BookTableForm.book_id++;
                     }
+                    BookTableForm.SaveBooks("Books.txt");
                     this.Close();
                 }
             }

@@ -46,7 +46,8 @@ namespace biblaoteka
             //read book from file by index
             if (bookIndex == 0)
             {
-                savedBook = BookTableForm.AllBookStorage.FindById(1);
+                BookTableForm.AllBookStorage.to_beginning();
+                savedBook = BookTableForm.AllBookStorage.getData();
                 LoadSavedBook();
                 bookChoosen = true;
                 //make ChooseBookButton visible
