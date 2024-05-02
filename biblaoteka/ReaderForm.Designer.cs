@@ -40,103 +40,98 @@
             SaveChangesButton = new Button();
             DiscardChangesButton = new Button();
             BackButton = new Button();
-            dataGridView1 = new DataGridView();
+            TakenBooksDataGridView = new DataGridView();
             BookIndex = new DataGridViewTextBoxColumn();
             BookName = new DataGridViewTextBoxColumn();
             TakenDate = new DataGridViewTextBoxColumn();
             ReturnDate = new DataGridViewTextBoxColumn();
             ToLendButton = new Button();
             button1 = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TakenBooksDataGridView).BeginInit();
             SuspendLayout();
             // 
             // ReaderFullNameLabel
             // 
             ReaderFullNameLabel.AutoSize = true;
-            ReaderFullNameLabel.Location = new Point(14, 67);
+            ReaderFullNameLabel.Location = new Point(12, 50);
             ReaderFullNameLabel.Name = "ReaderFullNameLabel";
-            ReaderFullNameLabel.Size = new Size(42, 20);
+            ReaderFullNameLabel.Size = new Size(34, 15);
             ReaderFullNameLabel.TabIndex = 0;
             ReaderFullNameLabel.Text = "ФИО";
             // 
             // ReaderIndexTextBox
             // 
-            ReaderIndexTextBox.Location = new Point(166, 24);
-            ReaderIndexTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderIndexTextBox.Location = new Point(145, 18);
             ReaderIndexTextBox.Name = "ReaderIndexTextBox";
             ReaderIndexTextBox.ReadOnly = true;
-            ReaderIndexTextBox.Size = new Size(332, 27);
+            ReaderIndexTextBox.Size = new Size(291, 23);
             ReaderIndexTextBox.TabIndex = 1;
             // 
             // ReaderFullNameTextBox
             // 
-            ReaderFullNameTextBox.Location = new Point(166, 63);
-            ReaderFullNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderFullNameTextBox.Location = new Point(145, 47);
             ReaderFullNameTextBox.Name = "ReaderFullNameTextBox";
-            ReaderFullNameTextBox.Size = new Size(332, 27);
+            ReaderFullNameTextBox.Size = new Size(291, 23);
             ReaderFullNameTextBox.TabIndex = 3;
             ReaderFullNameTextBox.TextChanged += ReaderFullNameTextBox_TextChanged;
             // 
             // ReaderIndexLabel
             // 
             ReaderIndexLabel.AutoSize = true;
-            ReaderIndexLabel.Location = new Point(14, 28);
+            ReaderIndexLabel.Location = new Point(12, 21);
             ReaderIndexLabel.Name = "ReaderIndexLabel";
-            ReaderIndexLabel.Size = new Size(59, 20);
+            ReaderIndexLabel.Size = new Size(47, 15);
             ReaderIndexLabel.TabIndex = 2;
             ReaderIndexLabel.Text = "Индекс";
             // 
             // ReaderBirthDateTextBox
             // 
-            ReaderBirthDateTextBox.Location = new Point(166, 101);
-            ReaderBirthDateTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderBirthDateTextBox.Location = new Point(145, 76);
             ReaderBirthDateTextBox.Name = "ReaderBirthDateTextBox";
-            ReaderBirthDateTextBox.Size = new Size(332, 27);
+            ReaderBirthDateTextBox.Size = new Size(291, 23);
             ReaderBirthDateTextBox.TabIndex = 5;
             ReaderBirthDateTextBox.TextChanged += ReaderFullNameTextBox_TextChanged;
             // 
             // ReaderBirthDateLabel
             // 
             ReaderBirthDateLabel.AutoSize = true;
-            ReaderBirthDateLabel.Location = new Point(14, 105);
+            ReaderBirthDateLabel.Location = new Point(12, 79);
             ReaderBirthDateLabel.Name = "ReaderBirthDateLabel";
-            ReaderBirthDateLabel.Size = new Size(116, 20);
+            ReaderBirthDateLabel.Size = new Size(90, 15);
             ReaderBirthDateLabel.TabIndex = 4;
             ReaderBirthDateLabel.Text = "Дата рождения";
             // 
             // ReaderAmountTakenBooksTextBox
             // 
-            ReaderAmountTakenBooksTextBox.Location = new Point(166, 140);
-            ReaderAmountTakenBooksTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderAmountTakenBooksTextBox.Location = new Point(145, 105);
             ReaderAmountTakenBooksTextBox.Name = "ReaderAmountTakenBooksTextBox";
             ReaderAmountTakenBooksTextBox.ReadOnly = true;
-            ReaderAmountTakenBooksTextBox.Size = new Size(332, 27);
+            ReaderAmountTakenBooksTextBox.Size = new Size(291, 23);
             ReaderAmountTakenBooksTextBox.TabIndex = 7;
             // 
             // ReaderAmountTakenBooksLabel
             // 
             ReaderAmountTakenBooksLabel.AutoSize = true;
-            ReaderAmountTakenBooksLabel.Location = new Point(14, 144);
+            ReaderAmountTakenBooksLabel.Location = new Point(12, 108);
             ReaderAmountTakenBooksLabel.Name = "ReaderAmountTakenBooksLabel";
-            ReaderAmountTakenBooksLabel.Size = new Size(144, 20);
+            ReaderAmountTakenBooksLabel.Size = new Size(114, 15);
             ReaderAmountTakenBooksLabel.TabIndex = 6;
             ReaderAmountTakenBooksLabel.Text = "Кол-во взятых книг";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(360, 187);
+            label6.Location = new Point(315, 140);
             label6.Name = "label6";
-            label6.Size = new Size(154, 20);
+            label6.Size = new Size(121, 15);
             label6.TabIndex = 10;
             label6.Text = "Таблица взятых книг";
             // 
             // SaveChangesButton
             // 
-            SaveChangesButton.Location = new Point(303, 507);
-            SaveChangesButton.Margin = new Padding(3, 4, 3, 4);
+            SaveChangesButton.Location = new Point(265, 380);
             SaveChangesButton.Name = "SaveChangesButton";
-            SaveChangesButton.Size = new Size(97, 76);
+            SaveChangesButton.Size = new Size(85, 57);
             SaveChangesButton.TabIndex = 11;
             SaveChangesButton.Text = "Сохранить изменения";
             SaveChangesButton.UseVisualStyleBackColor = true;
@@ -145,10 +140,9 @@
             // 
             // DiscardChangesButton
             // 
-            DiscardChangesButton.Location = new Point(406, 507);
-            DiscardChangesButton.Margin = new Padding(3, 4, 3, 4);
+            DiscardChangesButton.Location = new Point(355, 380);
             DiscardChangesButton.Name = "DiscardChangesButton";
-            DiscardChangesButton.Size = new Size(95, 76);
+            DiscardChangesButton.Size = new Size(83, 57);
             DiscardChangesButton.TabIndex = 12;
             DiscardChangesButton.Text = "Отменить изменения";
             DiscardChangesButton.UseVisualStyleBackColor = true;
@@ -157,32 +151,34 @@
             // 
             // BackButton
             // 
-            BackButton.Location = new Point(14, 547);
-            BackButton.Margin = new Padding(3, 4, 3, 4);
+            BackButton.Location = new Point(12, 410);
             BackButton.Name = "BackButton";
-            BackButton.Size = new Size(81, 36);
+            BackButton.Size = new Size(71, 27);
             BackButton.TabIndex = 13;
             BackButton.Text = "<- Назад";
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
-            // dataGridView1
+            // TakenBooksDataGridView
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { BookIndex, BookName, TakenDate, ReturnDate });
-            dataGridView1.Location = new Point(14, 211);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 25;
-            dataGridView1.Size = new Size(485, 277);
-            dataGridView1.TabIndex = 14;
+            TakenBooksDataGridView.AllowUserToAddRows = false;
+            TakenBooksDataGridView.AllowUserToDeleteRows = false;
+            TakenBooksDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TakenBooksDataGridView.Columns.AddRange(new DataGridViewColumn[] { BookIndex, BookName, TakenDate, ReturnDate });
+            TakenBooksDataGridView.Location = new Point(12, 158);
+            TakenBooksDataGridView.Name = "TakenBooksDataGridView";
+            TakenBooksDataGridView.ReadOnly = true;
+            TakenBooksDataGridView.RowHeadersWidth = 51;
+            TakenBooksDataGridView.RowTemplate.Height = 25;
+            TakenBooksDataGridView.Size = new Size(424, 208);
+            TakenBooksDataGridView.TabIndex = 14;
             // 
             // BookIndex
             // 
             BookIndex.HeaderText = "Индекс Книги";
             BookIndex.MinimumWidth = 6;
             BookIndex.Name = "BookIndex";
+            BookIndex.ReadOnly = true;
             BookIndex.Width = 80;
             // 
             // BookName
@@ -190,6 +186,7 @@
             BookName.HeaderText = "Название книги";
             BookName.MinimumWidth = 6;
             BookName.Name = "BookName";
+            BookName.ReadOnly = true;
             BookName.Width = 125;
             // 
             // TakenDate
@@ -197,6 +194,7 @@
             TakenDate.HeaderText = "Когда взята";
             TakenDate.MinimumWidth = 6;
             TakenDate.Name = "TakenDate";
+            TakenDate.ReadOnly = true;
             TakenDate.Width = 125;
             // 
             // ReturnDate
@@ -204,14 +202,14 @@
             ReturnDate.HeaderText = "Когда вернуть";
             ReturnDate.MinimumWidth = 6;
             ReturnDate.Name = "ReturnDate";
+            ReturnDate.ReadOnly = true;
             ReturnDate.Width = 125;
             // 
             // ToLendButton
             // 
-            ToLendButton.Location = new Point(111, 507);
-            ToLendButton.Margin = new Padding(3, 4, 3, 4);
+            ToLendButton.Location = new Point(97, 380);
             ToLendButton.Name = "ToLendButton";
-            ToLendButton.Size = new Size(85, 76);
+            ToLendButton.Size = new Size(74, 57);
             ToLendButton.TabIndex = 15;
             ToLendButton.Text = "Выдать книгу";
             ToLendButton.UseVisualStyleBackColor = true;
@@ -219,10 +217,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(202, 507);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(177, 380);
             button1.Name = "button1";
-            button1.Size = new Size(85, 76);
+            button1.Size = new Size(74, 57);
             button1.TabIndex = 16;
             button1.Text = "Принять книгу";
             button1.UseVisualStyleBackColor = true;
@@ -230,13 +227,13 @@
             // 
             // ReaderForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 192, 189);
-            ClientSize = new Size(514, 599);
+            ClientSize = new Size(450, 449);
             Controls.Add(button1);
             Controls.Add(ToLendButton);
-            Controls.Add(dataGridView1);
+            Controls.Add(TakenBooksDataGridView);
             Controls.Add(BackButton);
             Controls.Add(DiscardChangesButton);
             Controls.Add(SaveChangesButton);
@@ -249,11 +246,10 @@
             Controls.Add(ReaderIndexLabel);
             Controls.Add(ReaderIndexTextBox);
             Controls.Add(ReaderFullNameLabel);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "ReaderForm";
             StartPosition = FormStartPosition.CenterParent;
             Text = "Библиотека - Окно читателя";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TakenBooksDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -272,7 +268,7 @@
         private Button SaveChangesButton;
         private Button DiscardChangesButton;
         private Button BackButton;
-        private DataGridView dataGridView1;
+        private DataGridView TakenBooksDataGridView;
         private DataGridViewTextBoxColumn BookIndex;
         private DataGridViewTextBoxColumn BookName;
         private DataGridViewTextBoxColumn TakenDate;

@@ -241,6 +241,11 @@ namespace biblaoteka
 
         private void MoreBookButton_Click(object sender, EventArgs e)
         {
+            if (!bookChoosen)
+            {
+                MessageBox.Show("Выберите книгу");
+                return;
+            }
             BookForm bookForm = new BookForm(savedBook.id, savedBook);
             bookForm.ShowDialog();
         }
