@@ -40,6 +40,7 @@ namespace biblaoteka
             BookTableForm.AllBookStorage.getData().isd = IsdTextBox.Text;
             BookTableForm.AllBookStorage.getData().genre = GenreBox.SelectedIndex;
             BookTableForm.AllBookStorage.getData().amount = Int32.Parse(AmountTextBox.Text);
+            BookTableForm.SaveBooks("Books.txt");
         }
 
         private void LendBtn_Click(object sender, EventArgs e)
