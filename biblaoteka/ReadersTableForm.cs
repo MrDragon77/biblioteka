@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,23 +15,28 @@ namespace biblaoteka
 {
     public partial class ReadersTableForm : Form
     {
-        string pathToDB = "Readers.txt";
+        string pathToDB_Readers = "Readers.txt";
+        string pathToDB_TakenBooks = "TakenBooks.txt";
         List<Reader> readers;
         bool lendMode = false; //use true for open ReadersTable in choosing reader mode for LendForm
         public ReadersTableForm()
         {
             InitializeComponent();
             readers = new List<Reader>();
-            ReadReadersFromDB();
-            FillTable();
+            //FixAmountTakenBooksDB();
+            //ReadReadersFromDB();
+            //FillTable();
+            UpdateDB();
         }
         public ReadersTableForm(bool lendMode)
         {
             this.lendMode = lendMode;
             InitializeComponent();
             readers = new List<Reader>();
-            ReadReadersFromDB();
-            FillTable();
+            //FixAmountTakenBooksDB();
+            //ReadReadersFromDB();
+            //FillTable();
+            UpdateDB();
         }
         //void CreateFileStream()
         //{
@@ -39,7 +45,7 @@ namespace biblaoteka
         bool ReadReadersFromDB()
         {
             readers.Clear();
-            FileStream fs = new FileStream(pathToDB, FileMode.Open, FileAccess.Read);
+            FileStream fs = new FileStream(pathToDB_Readers, FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs);
 
             while (!sr.EndOfStream)
@@ -61,10 +67,10 @@ namespace biblaoteka
         }
         bool FixIndexesDB()
         {
-            File.Copy(pathToDB, "tmp.txt");
+            File.Copy(pathToDB_Readers, "tmp.txt");
             FileStream fs2 = new FileStream("tmp.txt", FileMode.Open, FileAccess.Read);
             StreamReader sr = new StreamReader(fs2);
-            FileStream fs = new FileStream(pathToDB, FileMode.Truncate, FileAccess.Write);
+            FileStream fs = new FileStream(pathToDB_Readers, FileMode.Truncate, FileAccess.Write);
             StreamWriter sw = new StreamWriter(fs);
 
 
@@ -90,8 +96,81 @@ namespace biblaoteka
             fs.Close();
             fs2.Close();
             File.Delete("tmp.txt");
-            MessageBox.Show("fixed indexes");
+            //MessageBox.Show("fixed indexes");
+            Debug.WriteLine("fixed indexes");
             return true;
+        }
+        bool FixAmountTakenBooksDB()
+        {
+
+            FileStream fs2 = new FileStream(pathToDB_Readers, FileMode.Open, FileAccess.Read);
+            StreamReader sr2 = new StreamReader(fs2);
+            string[] lineReader = new string[6];
+            string[] lineTakenBooks = new string[4];
+            List<int> amounts = new List<int>();
+
+            while(!sr2.EndOfStream)
+            {
+                lineReader = sr2.ReadLine().Split(' ');
+
+                List<int> TakenBooksIndexes = new List<int>();
+
+                FileStream fsIn = new FileStream(pathToDB_TakenBooks, FileMode.Open, FileAccess.Read);
+                StreamReader sr1 = new StreamReader(fsIn);
+                while (!sr1.EndOfStream)
+                {
+                    lineTakenBooks = sr1.ReadLine().Split(' ');
+                    if (lineTakenBooks[2] == lineReader[0])
+                    {
+
+                        if (Int32.Parse(lineTakenBooks[0]) == 1)
+                        {
+                            TakenBooksIndexes.Add(Int32.Parse(lineTakenBooks[1]));
+                        }
+                        if (Int32.Parse(lineTakenBooks[0]) == 0)
+                        {
+                            int removeIndex = TakenBooksIndexes.IndexOf(Int32.Parse(lineTakenBooks[1]));
+                            Debug.WriteLine("index: ", removeIndex);
+                            TakenBooksIndexes.RemoveAt(removeIndex);
+                        }
+                    }
+                }
+                fsIn.Close();
+                amounts.Add(TakenBooksIndexes.Count);
+            }
+            fs2.Close();
+
+            File.Copy(pathToDB_Readers, "tmp.txt");
+            fs2 = new FileStream("tmp.txt", FileMode.Open, FileAccess.Read);
+            StreamReader sr = new StreamReader(fs2);
+            FileStream fs1 = new FileStream(pathToDB_Readers, FileMode.Truncate, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs1);
+
+            int i = 0;
+            while (!sr.EndOfStream)
+            {
+                try
+                {
+                    string[] line = sr.ReadLine().Split(' ');
+                    sw.WriteLine(line[0] + ' ' + line[1] + ' ' + line[2] + ' ' + line[3] + ' ' + line[4] + ' ' + amounts[i]);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("Exception: " + ex.Message);
+                    fs1.Close();
+                    fs2.Close();
+                    return false;
+                }
+                i++;
+            }
+            sw.Flush();
+            fs1.Close();
+            fs2.Close();
+            File.Delete("tmp.txt");
+            //MessageBox.Show("fixed amount of taken books");
+            Debug.WriteLine("fixed amount of taken books");
+            return true;
+
         }
         void FillTable()
         {
@@ -111,6 +190,14 @@ namespace biblaoteka
                 row.Cells.AddRange(tb_index, tb_fullName, tb_birthDate, tb_amountTakenBooks);
                 ReadersTableDataGridView.Rows.Add(row);
             }
+            
+        }
+        void UpdateDB()
+        {
+            FixIndexesDB();
+            FixAmountTakenBooksDB();
+            ReadReadersFromDB();
+            FillTable();
         }
 
         private void fixbutton_Click(object sender, EventArgs e)
@@ -134,7 +221,7 @@ namespace biblaoteka
                 ReaderForm readerForm = new ReaderForm(index);
                 readerForm.ShowDialog();
             }
-
+            UpdateDB();
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -148,8 +235,9 @@ namespace biblaoteka
         {
             ReaderForm readerForm = new ReaderForm();
             readerForm.ShowDialog();
-            ReadReadersFromDB();
-            FillTable();
+            //ReadReadersFromDB();
+            //FillTable();
+            UpdateDB();
         }
     }
 }
