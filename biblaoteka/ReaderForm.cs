@@ -144,7 +144,7 @@ namespace biblaoteka
             string[] fullName = ReaderFullNameTextBox.Text.ToString().Split(' ');
             if (fullName.Length != 3)
             {
-                MessageBox.Show("It must contain 3 things: fam, name, ot. Divided by space symbol.\nIf reader does not have ot plase - instead of it.", "Wrong Full Name");
+                MessageBox.Show("Поле должно содержать ФИО: фамилию, имя, отчество. Каждый должен быть разделен пробелом.\nЕсли какой-то из параметров, например имя, содержит пробел, замените его на нижнее подчеркивание - '_'\nЕсли читатель не имеет имени или фамилии, замените его на дефис '-'.", "Неправильное ФИО");
                 return;
             }
             try
@@ -158,7 +158,7 @@ namespace biblaoteka
             catch (Exception ex)
             {
                 Debug.WriteLine("Exception: " + ex.Message);
-                MessageBox.Show("It must contain birth date in dd.mm.yyyy format.", "Wrong Birth Date");
+                MessageBox.Show("Поле должно содержать дату рождения в формате dd.mm.yyyy", "Неправильная дата рождения");
                 return;
             }
 
