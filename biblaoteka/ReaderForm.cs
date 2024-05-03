@@ -65,41 +65,50 @@ namespace biblaoteka
             StreamReader sr = new StreamReader(fs);
             string[] line = new string[4];
             //List<int> TakenBooks_Indexes = new List<int>();
-            List<string[]> TakenBooks = new List<string[]>();
+            List<int> TakenBooksIndexes = new List<int>();
+            List<string> TakenBooksDates = new List<string>();
             while (!sr.EndOfStream)
             {
                 line = sr.ReadLine().Split(' ');
                 //index reader
 
-
+                
                 if (line[2] == savedReader[0])
                 {
-                    string[] toAdd = new string[2];
-                    toAdd[0] = line[1];
-                    toAdd[1] = line[3];
+                    //string[] toAdd = new string[2];
+                    //toAdd[0] = line[1];
+                    //toAdd[1] = line[3];
+                    //Debug.WriteLine(toAdd[0]);
+                    //Debug.WriteLine(toAdd[1]);
                     if (Int32.Parse(line[0]) == 1)
                     {
-                        TakenBooks.Add(toAdd);
+                        TakenBooksIndexes.Add(Int32.Parse(line[1]));
+                        TakenBooksDates.Add(line[3]);
                     }
-                    //if (Int32.Parse(line[0]) == 0)
-                    //{
-                    //    int removeIndex = TakenBooks.IndexOf(toAdd);
-                    //    TakenBooks.RemoveAt(removeIndex);
-                    //}
-                    //не робит чет удаление, хз как удалить запись если она встречается с нулем, потом решу
+                    if (Int32.Parse(line[0]) == 0)
+                    {
+                        int removeIndex = TakenBooksIndexes.IndexOf(Int32.Parse(line[1]));
+                        Debug.WriteLine("index: ", removeIndex);
+                        TakenBooksIndexes.RemoveAt(removeIndex);
+                        TakenBooksDates.RemoveAt(removeIndex);
+                    }
+                    //сделал через костыль и 2 массива xd
+                    //не осуждайте
                 }
             }
             fs.Close();
-            for (int i = 0; i < TakenBooks.Count; i++)
+            for (int i = 0; i < TakenBooksIndexes.Count; i++)
             {
-                Debug.WriteLine(TakenBooks[i][0]);
-                Books.Book book = BookTableForm.AllBookStorage.FindById(Int32.Parse(TakenBooks[i][0]));
+                Debug.WriteLine(TakenBooksIndexes[i], " ");
+                Debug.WriteLine(TakenBooksDates[i], " ");
+
+                Books.Book book = BookTableForm.AllBookStorage.FindById(TakenBooksIndexes[i]);
                 DataGridViewCell tb_index = new DataGridViewTextBoxCell();
                 tb_index.Value = book.id.ToString();
                 DataGridViewCell tb_BookName = new DataGridViewTextBoxCell();
                 tb_BookName.Value = book.name.ToString();
                 DataGridViewCell tb_takenDate = new DataGridViewTextBoxCell();
-                tb_takenDate.Value = TakenBooks[i][1].ToString();
+                tb_takenDate.Value = TakenBooksDates[i];
                 DataGridViewCell tb_returnDate = new DataGridViewTextBoxCell();
                 tb_returnDate.Value = "99.99.9999"; //need to change to return date by жанр
 
