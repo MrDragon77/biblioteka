@@ -25,6 +25,7 @@ namespace biblaoteka
         {
             Debug.WriteLine("going to BookTableForm");
             this.Hide();
+            bookTableForm.GenreComboBox_DropDownClosed(sender, e);
             bookTableForm.ShowDialog();
             this.Show();
         }

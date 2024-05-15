@@ -52,6 +52,20 @@ namespace Books
             genre = new_genre;
             id = new_id;
         }
+
+        public int GenreToReturnDate()
+        {
+            switch (genre)
+            {
+                case 1:
+                    return 21;
+                case 2:
+                    return 14;
+                case 3:
+                    return 14;
+            }
+            return 14;
+        }
         public string IntToGenre(int genre)
         {
             switch (genre)

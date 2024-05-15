@@ -43,9 +43,7 @@
             MoreBookButton = new Button();
             MoreReaderButton = new Button();
             LendButton = new Button();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -71,6 +69,7 @@
             ReaderFullNameTextBox.Location = new Point(521, 81);
             ReaderFullNameTextBox.Margin = new Padding(3, 4, 3, 4);
             ReaderFullNameTextBox.Name = "ReaderFullNameTextBox";
+            ReaderFullNameTextBox.ReadOnly = true;
             ReaderFullNameTextBox.Size = new Size(332, 27);
             ReaderFullNameTextBox.TabIndex = 7;
             // 
@@ -183,7 +182,7 @@
             // 
             // LendButton
             // 
-            LendButton.Location = new Point(188, 528);
+            LendButton.Location = new Point(185, 501);
             LendButton.Margin = new Padding(3, 4, 3, 4);
             LendButton.Name = "LendButton";
             LendButton.Size = new Size(456, 49);
@@ -192,41 +191,24 @@
             LendButton.UseVisualStyleBackColor = true;
             LendButton.Click += LendButton_Click;
             // 
-            // label3
+            // button1
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(14, 315);
-            label3.Name = "label3";
-            label3.Size = new Size(339, 20);
-            label3.TabIndex = 17;
-            label3.Text = "//Выбрать книгу видно, если книга не выбрана";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(14, 353);
-            label4.Name = "label4";
-            label4.Size = new Size(414, 20);
-            label4.TabIndex = 18;
-            label4.Text = "//Открыть страницу книги будет когда книга уже выбрана";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(422, 315);
-            label5.Name = "label5";
-            label5.Size = new Size(106, 20);
-            label5.TabIndex = 19;
-            label5.Text = "//Аналогично";
+            button1.Location = new Point(14, 515);
+            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Name = "button1";
+            button1.Size = new Size(87, 35);
+            button1.TabIndex = 17;
+            button1.Text = "<- Назад";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // LendForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Plum;
             ClientSize = new Size(914, 600);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
+            Controls.Add(button1);
             Controls.Add(LendButton);
             Controls.Add(MoreReaderButton);
             Controls.Add(MoreBookButton);
@@ -266,8 +248,6 @@
         private Button MoreBookButton;
         private Button MoreReaderButton;
         private Button LendButton;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Button button1;
     }
 }

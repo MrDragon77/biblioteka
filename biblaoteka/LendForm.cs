@@ -34,12 +34,15 @@ namespace biblaoteka
         {
             this.lendMode = lendMode;
             InitializeComponent();
-            if (lendMode)
+            if (!lendMode)
             {
+                LendButton.Text = "Принять книгу";
                 //visible to lend mode true items must be visible = true;
                 //items are not connected to lend mode true must be invisible;
             }
+            else
             {
+                LendButton.Text = "Выдать книгу";
                 //analog
             }
 
@@ -249,6 +252,11 @@ namespace biblaoteka
             }
             BookForm bookForm = new BookForm(savedBook.id, savedBook);
             bookForm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -109,7 +109,7 @@ namespace biblaoteka
             string[] lineTakenBooks = new string[4];
             List<int> amounts = new List<int>();
 
-            while(!sr2.EndOfStream)
+            while (!sr2.EndOfStream)
             {
                 lineReader = sr2.ReadLine().Split(' ');
 
@@ -190,7 +190,7 @@ namespace biblaoteka
                 row.Cells.AddRange(tb_index, tb_fullName, tb_birthDate, tb_amountTakenBooks);
                 ReadersTableDataGridView.Rows.Add(row);
             }
-            
+
         }
         void UpdateDB()
         {
@@ -212,7 +212,7 @@ namespace biblaoteka
             int index = Int32.Parse(ReadersTableDataGridView[0, rowIndex].Value.ToString());
             Debug.WriteLine(rowIndex);
             Debug.WriteLine(index);
-            if(lendMode)
+            if (lendMode)
             {
                 this.DialogResult = (DialogResult)index;
             }

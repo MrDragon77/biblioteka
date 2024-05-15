@@ -110,7 +110,7 @@ namespace biblaoteka
                 DataGridViewCell tb_takenDate = new DataGridViewTextBoxCell();
                 tb_takenDate.Value = TakenBooksDates[i];
                 DataGridViewCell tb_returnDate = new DataGridViewTextBoxCell();
-                tb_returnDate.Value = "99.99.9999"; //need to change to return date by жанр
+                tb_returnDate.Value = DateTime.ParseExact(TakenBooksDates[i], "dd.MM.yyyy", CultureInfo.InvariantCulture).AddDays(book.GenreToReturnDate()).ToString().Substring(0, 10); //need to change to return date by жанр
 
                 DataGridViewRow row = new DataGridViewRow();
                 row.Cells.AddRange(tb_index, tb_BookName, tb_takenDate, tb_returnDate);

@@ -175,7 +175,7 @@ namespace biblaoteka
 
         }
 
-        private void GenreComboBox_DropDownClosed(object sender, EventArgs e)
+        public void GenreComboBox_DropDownClosed(object sender, EventArgs e)
         {
             CurBookStorage = AllBookStorage.FindByGenre(GenreComboBox.SelectedIndex);
             BookDataGV.Rows.Clear();
@@ -224,11 +224,10 @@ namespace biblaoteka
                         AllBookStorage.DeleteCurrent();
                         CurBookStorage.Find(dltBook);
                         CurBookStorage.DeleteCurrent();
-                        GenreComboBox_DropDownClosed(sender, e);
                     }
-
+                   
                 }
-
+                GenreComboBox_DropDownClosed(sender, e);
             }
         }
 
