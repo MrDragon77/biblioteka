@@ -49,99 +49,94 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 12);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(39, 15);
             label1.TabIndex = 0;
             label1.Text = "Книга";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(422, 12);
+            label2.Location = new Point(369, 9);
             label2.Name = "label2";
-            label2.Size = new Size(72, 20);
+            label2.Size = new Size(57, 15);
             label2.TabIndex = 1;
             label2.Text = "Читатель";
             // 
             // ReaderFullNameTextBox
             // 
-            ReaderFullNameTextBox.Location = new Point(521, 81);
-            ReaderFullNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderFullNameTextBox.Location = new Point(456, 61);
             ReaderFullNameTextBox.Name = "ReaderFullNameTextBox";
             ReaderFullNameTextBox.ReadOnly = true;
-            ReaderFullNameTextBox.Size = new Size(332, 27);
+            ReaderFullNameTextBox.Size = new Size(291, 23);
             ReaderFullNameTextBox.TabIndex = 7;
             // 
             // ReaderIndexLabel
             // 
             ReaderIndexLabel.AutoSize = true;
-            ReaderIndexLabel.Location = new Point(422, 47);
+            ReaderIndexLabel.Location = new Point(369, 35);
             ReaderIndexLabel.Name = "ReaderIndexLabel";
-            ReaderIndexLabel.Size = new Size(59, 20);
+            ReaderIndexLabel.Size = new Size(47, 15);
             ReaderIndexLabel.TabIndex = 6;
             ReaderIndexLabel.Text = "Индекс";
             // 
             // ReaderIndexTextBox
             // 
-            ReaderIndexTextBox.Location = new Point(521, 43);
-            ReaderIndexTextBox.Margin = new Padding(3, 4, 3, 4);
+            ReaderIndexTextBox.Location = new Point(456, 32);
             ReaderIndexTextBox.Name = "ReaderIndexTextBox";
             ReaderIndexTextBox.ReadOnly = true;
-            ReaderIndexTextBox.Size = new Size(332, 27);
+            ReaderIndexTextBox.Size = new Size(291, 23);
             ReaderIndexTextBox.TabIndex = 5;
             // 
             // ReaderFullNameLabel
             // 
             ReaderFullNameLabel.AutoSize = true;
-            ReaderFullNameLabel.Location = new Point(422, 85);
+            ReaderFullNameLabel.Location = new Point(369, 64);
             ReaderFullNameLabel.Name = "ReaderFullNameLabel";
-            ReaderFullNameLabel.Size = new Size(42, 20);
+            ReaderFullNameLabel.Size = new Size(34, 15);
             ReaderFullNameLabel.TabIndex = 4;
             ReaderFullNameLabel.Text = "ФИО";
             // 
             // BookNameTextBox
             // 
-            BookNameTextBox.Location = new Point(166, 81);
-            BookNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            BookNameTextBox.Location = new Point(145, 61);
             BookNameTextBox.Name = "BookNameTextBox";
             BookNameTextBox.ReadOnly = true;
-            BookNameTextBox.Size = new Size(201, 27);
+            BookNameTextBox.Size = new Size(176, 23);
             BookNameTextBox.TabIndex = 11;
             // 
             // BookIndexLabel
             // 
             BookIndexLabel.AutoSize = true;
-            BookIndexLabel.Location = new Point(14, 47);
+            BookIndexLabel.Location = new Point(12, 35);
             BookIndexLabel.Name = "BookIndexLabel";
-            BookIndexLabel.Size = new Size(59, 20);
+            BookIndexLabel.Size = new Size(47, 15);
             BookIndexLabel.TabIndex = 10;
             BookIndexLabel.Text = "Индекс";
             // 
             // BookIndexTextBox
             // 
-            BookIndexTextBox.Location = new Point(166, 43);
-            BookIndexTextBox.Margin = new Padding(3, 4, 3, 4);
+            BookIndexTextBox.Location = new Point(145, 32);
             BookIndexTextBox.Name = "BookIndexTextBox";
             BookIndexTextBox.ReadOnly = true;
-            BookIndexTextBox.Size = new Size(201, 27);
+            BookIndexTextBox.Size = new Size(176, 23);
             BookIndexTextBox.TabIndex = 9;
             // 
             // BookNameLabel
             // 
             BookNameLabel.AutoSize = true;
-            BookNameLabel.Location = new Point(14, 85);
+            BookNameLabel.Location = new Point(12, 64);
             BookNameLabel.Name = "BookNameLabel";
-            BookNameLabel.Size = new Size(77, 20);
+            BookNameLabel.Size = new Size(59, 15);
             BookNameLabel.TabIndex = 8;
             BookNameLabel.Text = "Название";
             // 
             // ChooseBookButton
             // 
-            ChooseBookButton.Location = new Point(14, 139);
-            ChooseBookButton.Margin = new Padding(3, 4, 3, 4);
+            ChooseBookButton.Location = new Point(12, 104);
             ChooseBookButton.Name = "ChooseBookButton";
-            ChooseBookButton.Size = new Size(353, 49);
+            ChooseBookButton.Size = new Size(309, 37);
             ChooseBookButton.TabIndex = 12;
             ChooseBookButton.Text = "Выбрать книгу";
             ChooseBookButton.UseVisualStyleBackColor = true;
@@ -149,10 +144,9 @@
             // 
             // ChooseReaderButton
             // 
-            ChooseReaderButton.Location = new Point(422, 139);
-            ChooseReaderButton.Margin = new Padding(3, 4, 3, 4);
+            ChooseReaderButton.Location = new Point(369, 104);
             ChooseReaderButton.Name = "ChooseReaderButton";
-            ChooseReaderButton.Size = new Size(456, 49);
+            ChooseReaderButton.Size = new Size(399, 37);
             ChooseReaderButton.TabIndex = 13;
             ChooseReaderButton.Text = "Выбрать читателя";
             ChooseReaderButton.UseVisualStyleBackColor = true;
@@ -160,10 +154,9 @@
             // 
             // MoreBookButton
             // 
-            MoreBookButton.Location = new Point(14, 240);
-            MoreBookButton.Margin = new Padding(3, 4, 3, 4);
+            MoreBookButton.Location = new Point(12, 180);
             MoreBookButton.Name = "MoreBookButton";
-            MoreBookButton.Size = new Size(353, 49);
+            MoreBookButton.Size = new Size(309, 37);
             MoreBookButton.TabIndex = 14;
             MoreBookButton.Text = "Открыть страницу книги";
             MoreBookButton.UseVisualStyleBackColor = true;
@@ -171,10 +164,9 @@
             // 
             // MoreReaderButton
             // 
-            MoreReaderButton.Location = new Point(422, 240);
-            MoreReaderButton.Margin = new Padding(3, 4, 3, 4);
+            MoreReaderButton.Location = new Point(369, 180);
             MoreReaderButton.Name = "MoreReaderButton";
-            MoreReaderButton.Size = new Size(456, 49);
+            MoreReaderButton.Size = new Size(399, 37);
             MoreReaderButton.TabIndex = 15;
             MoreReaderButton.Text = "Открыть страницу читателя";
             MoreReaderButton.UseVisualStyleBackColor = true;
@@ -182,10 +174,9 @@
             // 
             // LendButton
             // 
-            LendButton.Location = new Point(185, 501);
-            LendButton.Margin = new Padding(3, 4, 3, 4);
+            LendButton.Location = new Point(162, 376);
             LendButton.Name = "LendButton";
-            LendButton.Size = new Size(456, 49);
+            LendButton.Size = new Size(399, 37);
             LendButton.TabIndex = 16;
             LendButton.Text = "Выдать книгу";
             LendButton.UseVisualStyleBackColor = true;
@@ -193,10 +184,9 @@
             // 
             // button1
             // 
-            button1.Location = new Point(14, 515);
-            button1.Margin = new Padding(3, 4, 3, 4);
+            button1.Location = new Point(12, 386);
             button1.Name = "button1";
-            button1.Size = new Size(87, 35);
+            button1.Size = new Size(76, 26);
             button1.TabIndex = 17;
             button1.Text = "<- Назад";
             button1.UseVisualStyleBackColor = true;
@@ -204,10 +194,10 @@
             // 
             // LendForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Plum;
-            ClientSize = new Size(914, 600);
+            BackColor = Color.Thistle;
+            ClientSize = new Size(800, 450);
             Controls.Add(button1);
             Controls.Add(LendButton);
             Controls.Add(MoreReaderButton);
@@ -224,7 +214,6 @@
             Controls.Add(ReaderFullNameLabel);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "LendForm";
             Text = "LendForm";
             ResumeLayout(false);
