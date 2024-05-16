@@ -232,7 +232,8 @@ namespace biblaoteka
         }
 
         public static void SaveBooks(string filename)
-        {   StreamWriter file = new StreamWriter(filename);
+        {
+            StreamWriter file = new StreamWriter(filename);
             file.WriteLine("Книги: ");
             file.WriteLine(AllBookStorage.size().ToString());
             AllBookStorage.to_beginning();
