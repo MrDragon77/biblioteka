@@ -46,7 +46,7 @@
             TakenDate = new DataGridViewTextBoxColumn();
             ReturnDate = new DataGridViewTextBoxColumn();
             ToLendButton = new Button();
-            button1 = new Button();
+            ToReturnButton = new Button();
             ((System.ComponentModel.ISupportInitialize)TakenBooksDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -215,15 +215,15 @@
             ToLendButton.UseVisualStyleBackColor = true;
             ToLendButton.Click += ToLendButton_Click;
             // 
-            // button1
+            // ToReturnButton
             // 
-            button1.Location = new Point(177, 380);
-            button1.Name = "button1";
-            button1.Size = new Size(74, 57);
-            button1.TabIndex = 16;
-            button1.Text = "Принять книгу";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            ToReturnButton.Location = new Point(177, 380);
+            ToReturnButton.Name = "ToReturnButton";
+            ToReturnButton.Size = new Size(74, 57);
+            ToReturnButton.TabIndex = 16;
+            ToReturnButton.Text = "Принять книгу";
+            ToReturnButton.UseVisualStyleBackColor = true;
+            ToReturnButton.Click += ToReturnButton_Click;
             // 
             // ReaderForm
             // 
@@ -231,7 +231,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(241, 192, 189);
             ClientSize = new Size(450, 449);
-            Controls.Add(button1);
+            Controls.Add(ToReturnButton);
             Controls.Add(ToLendButton);
             Controls.Add(TakenBooksDataGridView);
             Controls.Add(BackButton);
@@ -274,6 +274,6 @@
         private DataGridViewTextBoxColumn TakenDate;
         private DataGridViewTextBoxColumn ReturnDate;
         private Button ToLendButton;
-        private Button button1;
+        private Button ToReturnButton;
     }
 }

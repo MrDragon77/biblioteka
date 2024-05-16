@@ -72,7 +72,7 @@ namespace biblaoteka
                 line = sr.ReadLine().Split(' ');
                 //index reader
 
-                
+
                 if (line[2] == savedReader[0])
                 {
                     //string[] toAdd = new string[2];
@@ -226,10 +226,16 @@ namespace biblaoteka
             this.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void ToReturnButton_Click(object sender, EventArgs e)
         {
             this.Hide();
-            LendForm lendForm = new LendForm(false, 0, Int32.Parse(savedReader[0]));
+            int bookIndex = 0;
+            if (TakenBooksDataGridView.RowCount > 0)
+            {
+                int rowIndex = TakenBooksDataGridView.SelectedCells[0].RowIndex;
+                bookIndex = Int32.Parse(TakenBooksDataGridView[0, rowIndex].Value.ToString());
+            }
+            LendForm lendForm = new LendForm(false, bookIndex, Int32.Parse(savedReader[0]));
             lendForm.ShowDialog();
             this.Show();
         }
