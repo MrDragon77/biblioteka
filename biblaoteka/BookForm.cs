@@ -45,7 +45,7 @@ namespace biblaoteka
 
         private void LendBtn_Click(object sender, EventArgs e)
         {
-            LendForm lendForm = new LendForm();
+            LendForm lendForm = new LendForm(true,book_id, 0);
             this.Close();
             lendForm.ShowDialog();
         }

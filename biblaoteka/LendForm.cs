@@ -27,7 +27,6 @@ namespace biblaoteka
         bool bookChoosen = false;
         public LendForm()
         {
-            bookTableForm = new BookTableForm(true);
             InitializeComponent();
         }
         public LendForm(bool lendMode, int bookIndex, int readerIndex)
